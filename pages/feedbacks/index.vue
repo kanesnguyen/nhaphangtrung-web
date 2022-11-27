@@ -1,13 +1,6 @@
 <template>
     <div>
-        <FeedbackFilter class="card" />
-        <div class="card mt-4">
-            <div class="flex justify-between items-center">
-                <ct-page-header text="Feedback khách hàng" />
-                <a-button type="primary" @click="$refs.feedbackDialog.open()">
-                    Thêm feedback
-                </a-button>
-            </div>
+        <div class="card">
             <FeedbackTable
                 class="mt-4"
                 :feedbacks="feedbacks"
@@ -15,7 +8,6 @@
                 :pagination="pagination"
             />
         </div>
-        <FeedbackDialog ref="feedbackDialog" />
     </div>
 </template>
 
@@ -23,14 +15,10 @@
     import { mapState } from 'vuex';
     import { mapDataFromOptions } from '@/utils/data';
     import FeedbackTable from '@/components/feedbacks/Table.vue';
-    import FeedbackFilter from '@/components/feedbacks/Filter.vue';
-    import FeedbackDialog from '@/components/feedbacks/Dialog.vue';
 
     export default {
         components: {
             FeedbackTable,
-            FeedbackFilter,
-            FeedbackDialog,
         },
         async fetch() {
             await this.fetchData();

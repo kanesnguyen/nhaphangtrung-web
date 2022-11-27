@@ -9,7 +9,7 @@
                             Quay lại
                         </a-button>
                     </nuxt-link>
-                    <nuxt-link :to="`/posts/${$route.params.id}/edit`">
+                    <nuxt-link :to="`/posts/${$route.params.slug}/edit`">
                         <a-button type="primary">
                             Chỉnh sửa
                         </a-button>

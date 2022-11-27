@@ -1,10 +1,10 @@
 <template>
     <div>
         <a-table
-            :data-source="posts"
+            :data-source="users"
             :pagination="false"
             :scroll="{ x: 1200 }"
-            :row-key="(row) => row.id"
+            :row-key="(row) => row._id"
             :loading="loading"
         >
             <a-table-column
@@ -15,34 +15,42 @@
                 :custom-render="(text, record, index) => $helpers.getTableIndex(pagination, index)"
             />
             <a-table-column
-                key="name"
-                title="Tên bài viết"
-                :width="150"
+                key="username"
+                title="Username"
+                :width="100"
             >
                 <template #default="record">
-                    <nuxt-link :to="`/posts/${record.id}`" class="hover:underline">
-                        {{ record.name }}
-                    </nuxt-link>
+                    {{ record.username }}
                 </template>
             </a-table-column>
             <a-table-column
-                key="category"
-                title="Danh mục"
+                key="fullName"
+                title="Họ và tên"
                 :width="120"
                 align="center"
             >
                 <template #default="record">
-                    <span>{{ record.categoryName || '- -' }}</span>
+                    <span>{{ record.fullName || '- -' }}</span>
                 </template>
             </a-table-column>
             <a-table-column
-                key="description"
-                title="Mô tả"
-                :width="200"
+                key="phoneNumber"
+                title="Số điện thoại"
+                :width="150"
                 align="center"
             >
                 <template #default="record">
-                    <span class="line-clamp-3">{{ record.description || '- -' }}</span>
+                    <span class="line-clamp-3">{{ record.phoneNumber || '- -' }}</span>
+                </template>
+            </a-table-column>
+            <a-table-column
+                key="email"
+                title="Email"
+                :width="150"
+                align="center"
+            >
+                <template #default="record">
+                    <span class="line-clamp-3">{{ record.email || '- -' }}</span>
                 </template>
             </a-table-column>
             <a-table-column
@@ -91,9 +99,9 @@
                                 </nuxt-link>
                             </a-menu-item>
                             <a-menu-item class="capitalize" @click="changeStatus(scope)">
-                                {{ scope.status === STATUS.ACTIVE ? 'Ngưng hoạt động' : 'Cho phép hoạt động' }}
+                                {{ scope.status === USER_STATUS.ACTIVE ? 'Ngưng hoạt động' : 'Cho phép hoạt động' }}
                             </a-menu-item>
-                            <a-menu-item class="!text-danger-100" @click="() => { $refs.confirmDelete.open(), productSelected = scope }">
+                            <a-menu-item class="!text-danger-100" @click="() => { $refs.confirmDelete.open(), userSelected = scope }">
                                 Xóa
                             </a-menu-item>
                         </a-menu>
@@ -112,8 +120,8 @@
 
 <script>
     import { mapDataFromOptions } from '@/utils/data';
-    import { STATUS, STATUS_OPTIONS } from '@/constants/posts/status';
     import ConfirmDialog from '@/components/shared/ConfirmDialog.vue';
+    import { USER_STATUS, USER_STATUS_OPTIONS } from '@/constants/users/status';
 
     export default {
         components: {
@@ -121,7 +129,7 @@
         },
 
         props: {
-            posts: {
+            users: {
                 type: Array,
                 default: () => [],
             },
@@ -137,19 +145,19 @@
 
         data() {
             return {
-                STATUS,
-                STATUS_OPTIONS,
-                productSelected: null,
+                USER_STATUS,
+                USER_STATUS_OPTIONS,
+                userSelected: null,
             };
         },
 
         computed: {
             STATUS_LABEL() {
-                return this.mapDataFromOptions(STATUS_OPTIONS, 'value', 'label');
+                return this.mapDataFromOptions(USER_STATUS_OPTIONS, 'value', 'label');
             },
 
             STATUS_COLOR() {
-                return this.mapDataFromOptions(STATUS_OPTIONS, 'value', 'color');
+                return this.mapDataFromOptions(USER_STATUS_OPTIONS, 'value', 'color');
             },
         },
 
@@ -157,7 +165,7 @@
             mapDataFromOptions,
             async confirmDelete() {
                 try {
-                    await this.$api.posts.delete(this.productSelected.id);
+                    await this.$api.posts.delete(this.userSelected.id);
                     this.$message.success('Xóa bài viết thành công');
                     this.$nuxt.refresh();
                 } catch (e) {
@@ -165,12 +173,12 @@
                     this.$message.error('Xóa bài viết thất bại');
                 }
             },
-            async changeStatus(product) {
+            async changeStatus(user) {
                 try {
-                    if (product.status === STATUS.ACTIVE) {
-                        await this.$api.posts.inActive(product.id);
+                    if (user.status === USER_STATUS.ACTIVE) {
+                        await this.$api.posts.inActive(user.id);
                     } else {
-                        await this.$api.posts.active(product.id);
+                        await this.$api.posts.active(user.id);
                     }
                     this.$message.success('Thay đổi trạng thái thành công');
                     this.$nuxt.refresh();

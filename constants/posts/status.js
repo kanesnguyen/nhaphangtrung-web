@@ -1,6 +1,6 @@
 export const STATUS = {
-    ACTIVE: 'active',
-    INACTIVE: 'inactive',
+    ACTIVE: 'true',
+    INACTIVE: 'false',
 };
 
 export const STATUS_OPTIONS = [{
@@ -8,7 +8,7 @@ export const STATUS_OPTIONS = [{
     value: STATUS.ACTIVE,
     color: 'green',
 }, {
-    label: 'Ngừng hoạt động',
+    label: 'Không hoạt động',
     value: STATUS.INACTIVE,
     color: 'red',
 }];

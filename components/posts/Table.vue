@@ -4,7 +4,7 @@
             :data-source="posts"
             :pagination="false"
             :scroll="{ x: 1200 }"
-            :row-key="(row) => row.id"
+            :row-key="(row) => row._id"
             :loading="loading"
         >
             <a-table-column
@@ -16,12 +16,12 @@
             />
             <a-table-column
                 key="name"
-                title="Tên bài viết"
+                title="Tiêu đề"
                 :width="150"
             >
                 <template #default="record">
-                    <nuxt-link :to="`/posts/${record.id}`" class="hover:underline">
-                        {{ record.name }}
+                    <nuxt-link :to="`/posts/${record.slug}`" class="hover:underline overflow-hidden" style="display: -webkit-box; -webkit-box-orient: vertical;-webkit-line-clamp:2">
+                        {{ record.title }}
                     </nuxt-link>
                 </template>
             </a-table-column>
@@ -32,17 +32,17 @@
                 align="center"
             >
                 <template #default="record">
-                    <span>{{ record.categoryName || '- -' }}</span>
+                    <span>{{ record.category.label || '- -' }}</span>
                 </template>
             </a-table-column>
             <a-table-column
-                key="description"
-                title="Mô tả"
+                key="views"
+                title="Lượt xem"
                 :width="200"
                 align="center"
             >
                 <template #default="record">
-                    <span class="line-clamp-3">{{ record.description || '- -' }}</span>
+                    <span class="line-clamp-3">{{ record.views || '- -' }}</span>
                 </template>
             </a-table-column>
             <a-table-column
@@ -81,19 +81,19 @@
                         </a-button>
                         <a-menu slot="overlay">
                             <a-menu-item>
-                                <nuxt-link :to="`/posts/${scope.id}`">
+                                <nuxt-link :to="`/posts/${scope.slug}`">
                                     Xem chi tiết
                                 </nuxt-link>
                             </a-menu-item>
                             <a-menu-item>
-                                <nuxt-link :to="`/posts/${scope.id}/edit`">
+                                <nuxt-link :to="`/posts/${scope._id}/edit`">
                                     Chỉnh sửa
                                 </nuxt-link>
                             </a-menu-item>
                             <a-menu-item class="capitalize" @click="changeStatus(scope)">
                                 {{ scope.status === STATUS.ACTIVE ? 'Ngưng hoạt động' : 'Cho phép hoạt động' }}
                             </a-menu-item>
-                            <a-menu-item class="!text-danger-100" @click="() => { $refs.confirmDelete.open(), productSelected = scope }">
+                            <a-menu-item class="!text-danger-100" @click="() => { $refs.confirmDelete.open(), postSelected = scope }">
                                 Xóa
                             </a-menu-item>
                         </a-menu>
@@ -101,6 +101,7 @@
                 </template>
             </a-table-column>
         </a-table>
+        <Pagination :data="pagination" />
         <ConfirmDialog
             ref="confirmDelete"
             title="Xác nhận xóa bài viết"
@@ -114,10 +115,12 @@
     import { mapDataFromOptions } from '@/utils/data';
     import { STATUS, STATUS_OPTIONS } from '@/constants/posts/status';
     import ConfirmDialog from '@/components/shared/ConfirmDialog.vue';
+    import Pagination from '@/components/shared/Pagination.vue';
 
     export default {
         components: {
             ConfirmDialog,
+            Pagination,
         },
 
         props: {
@@ -139,7 +142,7 @@
             return {
                 STATUS,
                 STATUS_OPTIONS,
-                productSelected: null,
+                postSelected: null,
             };
         },
 
@@ -157,7 +160,7 @@
             mapDataFromOptions,
             async confirmDelete() {
                 try {
-                    await this.$api.posts.delete(this.productSelected.id);
+                    await this.$api.posts.delete(this.postSelected.id);
                     this.$message.success('Xóa bài viết thành công');
                     this.$nuxt.refresh();
                 } catch (e) {
@@ -165,12 +168,12 @@
                     this.$message.error('Xóa bài viết thất bại');
                 }
             },
-            async changeStatus(product) {
+            async changeStatus(post) {
                 try {
-                    if (product.status === STATUS.ACTIVE) {
-                        await this.$api.posts.inActive(product.id);
+                    if (post.status === STATUS.ACTIVE) {
+                        await this.$api.posts.inActive(post.id);
                     } else {
-                        await this.$api.posts.active(product.id);
+                        await this.$api.posts.active(post.id);
                     }
                     this.$message.success('Thay đổi trạng thái thành công');
                     this.$nuxt.refresh();

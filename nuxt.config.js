@@ -12,7 +12,7 @@ export default {
 
     // When SSR
     loadingIndicator: {
-        name: 'folding-cube',
+        name: 'faded-circle',
         color: '#336CCE',
     },
 
@@ -29,7 +29,7 @@ export default {
             { name: 'format-detection', content: 'telephone=no' },
         ],
         link: [
-            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+            { rel: 'icon', type: 'image/x-icon', href: '/logo.png' },
         ],
     },
 

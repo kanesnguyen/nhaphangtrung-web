@@ -15,7 +15,7 @@ export const getters = {
 
 export const actions = {
     async fetchAll({ commit }, payload) {
-        const { data: { productCategories } } = await this.$api.productCategories.getAll(payload);
-        commit('SET_STATE', { prop: 'categories', data: productCategories });
+        const { data: { categories } } = await this.$api.postCategories.getAll(payload);
+        commit('SET_STATE', { prop: 'categories', data: categories });
     },
 };

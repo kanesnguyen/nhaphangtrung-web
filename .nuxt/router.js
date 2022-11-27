@@ -11,7 +11,6 @@ const _2e7ea546 = () => interopDefault(import('..\\pages\\login.vue' /* webpackC
 const _3658c1d2 = () => interopDefault(import('..\\pages\\posts\\index.vue' /* webpackChunkName: "pages/posts/index" */))
 const _304749c9 = () => interopDefault(import('..\\pages\\ads\\create.vue' /* webpackChunkName: "pages/ads/create" */))
 const _2bb0dab6 = () => interopDefault(import('..\\pages\\posts\\categories\\index.vue' /* webpackChunkName: "pages/posts/categories/index" */))
-const _871879a8 = () => interopDefault(import('..\\pages\\posts\\create.vue' /* webpackChunkName: "pages/posts/create" */))
 const _6634d0e6 = () => interopDefault(import('..\\pages\\services\\create.vue' /* webpackChunkName: "pages/services/create" */))
 const _7d37cef0 = () => interopDefault(import('..\\pages\\users\\author.vue' /* webpackChunkName: "pages/users/author" */))
 const _04377518 = () => interopDefault(import('..\\pages\\users\\manager.vue' /* webpackChunkName: "pages/users/manager" */))
@@ -61,10 +60,6 @@ export const routerOptions = {
     path: "/posts/categories",
     component: _2bb0dab6,
     name: "posts-categories"
-  }, {
-    path: "/posts/create",
-    component: _871879a8,
-    name: "posts-create"
   }, {
     path: "/services/create",
     component: _6634d0e6,

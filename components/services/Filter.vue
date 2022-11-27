@@ -4,7 +4,7 @@
             class="col-span-2"
             label="Tìm kiếm"
             placeholder="Tìm kiếm theo tên, nội dung..."
-            query="freeWord"
+            query="searchKey"
         />
         <SelectFilter
             class="col-span-2"

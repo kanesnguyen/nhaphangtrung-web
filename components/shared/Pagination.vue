@@ -3,22 +3,22 @@
         <div class="flex items-center gap-2 order-2 lg:order-1">
             <span>Total {{ data.total | numberFormat }}</span>
             <a-select
-                :value="data.perPage"
+                :value="data.pageSize"
                 class="w-24"
                 size="small"
-                @change="(perPage) => changePerPage(perPage)"
+                @change="(pageSize) => changePerPage(pageSize)"
             >
-                <a-select-option v-for="perPage in PAGINATION_CONFIG.PER_PAGE_OPTIONS" :key="perPage" :value="perPage">
-                    {{ perPage }}/page
+                <a-select-option v-for="pageSize in PAGINATION_CONFIG.PER_PAGE_OPTIONS" :key="pageSize" :value="pageSize">
+                    {{ pageSize }}/page
                 </a-select-option>
             </a-select>
         </div>
         <a-pagination
-            v-if="pagination && pagination.perPage"
+            v-if="pagination && pagination.pageSize"
             v-model.number="pagination.page"
             class="ct-pagination order-1 lg:order-2 flex justify-center w-full lg:w-auto"
             :total="pagination.total"
-            :page-size="pagination.perPage"
+            :page-size="pagination.pageSize"
             show-less-items
             @change="handleChangePage"
         />
@@ -70,7 +70,7 @@
                 pagination: _cloneDeep({
                     ...this.data,
                     page: parseInt(this.data?.page, 10),
-                    perPage: parseInt(this.data?.perPage, 10),
+                    pageSize: parseInt(this.data?.pageSize, 10),
                 }),
                 goTo: 1,
             };
@@ -97,14 +97,14 @@
                 }
             },
 
-            changePerPage(perPage) {
+            changePerPage(pageSize) {
                 if (this.isQuery) {
                     this.pushParam({
-                        [this.limitQuery]: perPage,
+                        [this.limitQuery]: pageSize,
                         [this.query]: 1,
                     });
                 } else {
-                    this.$emit('changePage', { perPage });
+                    this.$emit('changePage', { pageSize });
                 }
             },
 

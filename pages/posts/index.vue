@@ -1,17 +1,11 @@
 <template>
     <div>
-        <ProductsFilter class="card" />
+        <PostsFilter class="card" />
         <div class="card mt-4">
             <div class="flex justify-between items-center">
                 <ct-page-header text="Danh sách bài viết" />
-                <nuxt-link to="/posts/create">
-                    <a-button type="primary">
-                        <i class="fas fa-plus mr-2" />
-                        Thêm bài viết
-                    </a-button>
-                </nuxt-link>
             </div>
-            <ProductsTable
+            <PostsTable
                 class="mt-4"
                 :posts="posts"
                 :loading="loading"
@@ -23,13 +17,13 @@
 
 <script>
     import { mapState } from 'vuex';
-    import ProductsFilter from '@/components/posts/Filter.vue';
-    import ProductsTable from '@/components/posts/Table.vue';
+    import PostsFilter from '@/components/posts/Filter.vue';
+    import PostsTable from '@/components/posts/Table.vue';
 
     export default {
         components: {
-            ProductsFilter,
-            ProductsTable,
+            PostsFilter,
+            PostsTable,
         },
 
         async fetch() {
@@ -56,7 +50,7 @@
 
         mounted() {
             this.$store.commit('breadcrumbs/SET_BREADCRUMBS', [{
-                label: 'Bài viết',
+                label: 'Danh sách bài viết',
                 link: '/posts',
             }]);
         },
@@ -66,6 +60,7 @@
                 try {
                     this.loading = true;
                     await this.$store.dispatch('posts/fetchAll', this.$route.query);
+                    await this.$store.dispatch('posts/categories/fetchAll', this.$route.query);
                 } catch (error) {
                     this.$handleError(error);
                 } finally {

@@ -49,13 +49,6 @@
     "_name": "_2bb0dab6"
   },
   {
-    "name": "posts-create",
-    "path": "/posts/create",
-    "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\posts\\\\create.vue",
-    "chunkName": "pages/posts/create",
-    "_name": "_871879a8"
-  },
-  {
     "name": "services-create",
     "path": "/services/create",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\services\\\\create.vue",

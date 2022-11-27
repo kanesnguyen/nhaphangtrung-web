@@ -4,7 +4,7 @@
             {{ label }}
         </div>
         <a-input-search
-            v-model="keySearch"
+            v-model="searchKey"
             :placeholder="placeholder"
             class="search-filter"
             :size="size"
@@ -38,7 +38,7 @@
             },
             query: {
                 type: String,
-                default: 'freeWord',
+                default: 'searchKey',
             },
             clearable: {
                 type: Boolean,
@@ -53,14 +53,14 @@
         data() {
             return {
                 searchDebounce: null,
-                keySearch: this.$route.query[this.query] || this.value,
+                searchKey: this.$route.query[this.query] || this.value,
             };
         },
 
         watch: {
             '$route.query': {
                 handler(query) {
-                    this.keySearch = query[this.query];
+                    this.searchKey = query[this.query];
                     this.onSearch();
                 },
                 deep: true,
@@ -78,21 +78,21 @@
                     await this.searchDebounce.cancel();
                 }
                 this.searchDebounce = _debounce(async () => {
-                    if (this.mode === 'number' && !!this.keySearch) {
-                        this.keySearch = this.keySearch.replace(/\D/g, '');
+                    if (this.mode === 'number' && !!this.searchKey) {
+                        this.searchKey = this.searchKey.replace(/\D/g, '');
                     }
-                    this.$emit('input', this.keySearch);
-                    this.$emit('change', this.keySearch);
-                    if (this.query && this.keySearch) {
+                    this.$emit('input', this.searchKey);
+                    this.$emit('change', this.searchKey);
+                    if (this.query && this.searchKey) {
                         this.$router.push({
                             query: _assign({}, _omit(this.$route.query, _map(this.options, 'value')), {
-                                [this.query]: this.keySearch.trim(),
+                                [this.query]: this.searchKey.trim(),
                                 page: 1,
                             }),
                         });
                     }
 
-                    if (!this.keySearch) {
+                    if (!this.searchKey) {
                         this.$router.push({
                             query: _assign({}, _omit(this.$route.query, [this.query])),
                         });
@@ -102,7 +102,7 @@
             },
 
             onChange() {
-                if (!this.keySearch) {
+                if (!this.searchKey) {
                     this.$router.push({
                         query: _assign({}, _omit(this.$route.query, [this.query])),
                     });

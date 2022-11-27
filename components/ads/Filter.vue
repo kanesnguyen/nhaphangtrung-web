@@ -4,20 +4,20 @@
             class="col-span-2"
             label="Tìm kiếm"
             placeholder="Tìm kiếm theo tên, nội dung..."
-            query="freeWord"
+            query="searchKey"
         />
         <SelectFilter
             class="col-span-2"
             label="Trạng thái"
             placeholder="Trạng thái"
             query="status"
-            :options="NEWS_STATUS_OPTIONS"
+            :options="ADS_STATUS_OPTIONS"
         />
     </div>
 </template>
 
 <script>
-    import { NEWS_STATUS_OPTIONS } from '@/constants/ads/status';
+    import { ADS_STATUS_OPTIONS } from '@/constants/ads/status';
     import SearchFilter from '@/components/filters/Search.vue';
     import SelectFilter from '@/components/filters/Select.vue';
 
@@ -29,7 +29,7 @@
 
         data() {
             return {
-                NEWS_STATUS_OPTIONS,
+                ADS_STATUS_OPTIONS,
             };
         },
     };

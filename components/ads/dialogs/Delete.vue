@@ -7,7 +7,7 @@
         title="Xóa quảng cáo"
     >
         <div>
-            Xác nhận xóa tin <strong>{{ ads.title }}</strong>
+            Xác nhận xóa bản ghi
         </div>
         <div slot="footer" class="flex justify-center items-center gap-2">
             <a-button class="w-28" @click="close">
@@ -17,7 +17,7 @@
                 :loading="loading"
                 class="w-28"
                 type="danger"
-                @click="deleteNews"
+                @click="deleteAds"
             >
                 Xác nhận
             </a-button>
@@ -44,11 +44,11 @@
                 this.visible = false;
             },
 
-            async deleteNews() {
+            async deleteAds() {
                 try {
                     this.loading = true;
                     if (this.ads) {
-                        await this.$api.ads.delete(this.ads.id);
+                        await this.$api.ads.delete(this.ads._id);
                     }
                     this.close();
                     this.$message.success('Xóa quảng cáo thành công');

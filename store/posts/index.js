@@ -1,6 +1,6 @@
 export const emptyState = () => ({
     posts: [],
-    product: {},
+    post: {},
     pagination: {},
 });
 
@@ -26,8 +26,8 @@ export const actions = {
     },
 
     async fetchDetail({ commit }, payload) {
-        const { data: { product } } = await this.$api.posts.getDetail(payload.id);
-        commit('SET_STATE', { prop: 'product', data: product });
+        const { data: { post } } = await this.$api.posts.getDetail(payload.id);
+        commit('SET_STATE', { prop: 'post', data: post });
     },
 
     resetState({ commit }) {

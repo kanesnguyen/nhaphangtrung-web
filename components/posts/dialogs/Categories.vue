@@ -104,7 +104,7 @@
             async create(form) {
                 try {
                     this.loading = true;
-                    await this.$api.productCategories.create(form);
+                    await this.$api.postCategories.create(form);
                     this.$message.success('Thêm mới danh mục thành công');
                     this.close();
                 } catch (e) {
@@ -118,7 +118,7 @@
             async update(form) {
                 try {
                     this.loading = true;
-                    await this.$api.productCategories.update(form.id, form);
+                    await this.$api.postCategories.update(form.id, form);
                     this.$message.success('Chỉnh sửa danh mục thành công');
                     this.close();
                 } catch (e) {

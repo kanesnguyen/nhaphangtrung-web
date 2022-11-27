@@ -112,7 +112,7 @@
             async create(form) {
                 try {
                     this.loading = true;
-                    await this.$api.productCategories.create({ ...form, parentId: this.categoryParentId });
+                    await this.$api.postCategories.create({ ...form, parentId: this.categoryParentId });
                     this.$message.success('Thêm mới danh mục con thành công');
                     this.close();
                 } catch (e) {
@@ -126,7 +126,7 @@
             async update(form) {
                 try {
                     this.loading = true;
-                    await this.$api.productCategories.update(form.id, form);
+                    await this.$api.postCategories.update(form.id, form);
                     this.$message.success('Chỉnh sửa danh mục con thành công');
                     this.close();
                 } catch (e) {

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NewsFilter class="card" />
+        <AdsFilter class="card" />
         <div class="card mt-4">
             <div class="flex justify-between items-center">
                 <ct-page-header text="Danh sách quảng cáo" />
@@ -10,7 +10,7 @@
                     </a-button>
                 </nuxt-link>
             </div>
-            <NewsTable
+            <AdsTable
                 class="mt-4"
                 :ads="ads"
                 :loading="loading"
@@ -22,13 +22,13 @@
 
 <script>
     import { mapState } from 'vuex';
-    import NewsFilter from '@/components/ads/Filter.vue';
-    import NewsTable from '@/components/ads/Table.vue';
+    import AdsFilter from '@/components/ads/Filter.vue';
+    import AdsTable from '@/components/ads/Table.vue';
 
     export default {
         components: {
-            NewsFilter,
-            NewsTable,
+            AdsFilter,
+            AdsTable,
         },
 
         async fetch() {

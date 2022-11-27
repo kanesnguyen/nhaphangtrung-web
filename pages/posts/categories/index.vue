@@ -130,7 +130,7 @@
             async deleteCategory() {
                 try {
                     this.loading = true;
-                    await this.$api.productCategories.delete(this.categorySelected.id);
+                    await this.$api.postCategories.delete(this.categorySelected.id);
                     this.$message.success('Xóa danh mục thành công');
                     this.$nuxt.refresh();
                 } catch (e) {

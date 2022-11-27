@@ -20,15 +20,15 @@
             </div>
         </div>
 
-        <NewsForm ref="adsForm" class="card flex-grow !p-4" @submit="createNews" />
+        <AdsForm ref="adsForm" class="card flex-grow !p-4" @submit="createAds" />
     </div>
 </template>
 
 <script>
-    import NewsForm from '@/components/ads/Form.vue';
+    import AdsForm from '@/components/ads/Form.vue';
 
     export default {
-        components: { NewsForm },
+        components: { AdsForm },
         data() {
             return {
                 loading: false,
@@ -46,7 +46,7 @@
         },
 
         methods: {
-            async createNews(form) {
+            async createAds(form) {
                 try {
                     this.loading = true;
                     await this.$api.ads.create(form);

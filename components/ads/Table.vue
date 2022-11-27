@@ -32,9 +32,7 @@
                 :width="350"
             >
                 <template #default="record">
-                    <nuxt-link :to="`/ads/${record.id}`" class="hover:underline">
-                        {{ record.title }}
-                    </nuxt-link>
+                    {{ record.title }}
                 </template>
             </a-table-column>
             <a-table-column
@@ -56,20 +54,20 @@
                 align="center"
             >
                 <template #default="status">
-                    <a-tag :color="NEWS_STATUS_COLORS[status]" class="!mr-0">
-                        {{ NEWS_STATUS_LABELS[status] }}
+                    <a-tag :color="ADS_STATUS_COLORS[status]" class="!mr-0">
+                        {{ ADS_STATUS_LABELS[status] }}
                     </a-tag>
                 </template>
             </a-table-column>
             <a-table-column
-                key="publicAt"
+                key="createdAt"
                 title="NGÀY ĐĂNG"
                 :width="160"
-                data-index="publicAt"
+                data-index="createdAt"
                 align="center"
             >
-                <template #default="publicAt">
-                    {{ publicAt | dateFormat('HH:mm dd/MM/yyyy') }}
+                <template #default="createdAt">
+                    {{ createdAt | dateFormat('HH:mm dd/MM/yyyy') }}
                 </template>
             </a-table-column>
             <a-table-column
@@ -83,11 +81,11 @@
                         </a-button>
                         <a-menu slot="overlay">
                             <a-menu-item class="!py-2">
-                                <nuxt-link :to="`/ads/${record.id}`">
+                                <nuxt-link :to="`/ads/${record._id}`">
                                     <i class="fas fa-edit mr-2 text-info-100" /> Sửa
                                 </nuxt-link>
                             </a-menu-item>
-                            <a-menu-item v-if="record.status === NEWS_STATUS.ACTIVE" class="!py-2" @click="inactive(record)">
+                            <a-menu-item v-if="record.status === JSON.parse(ADS_STATUS.ACTIVE)" class="!py-2" @click="inactive(record)">
                                 <i class="fas fa-lock text-danger-100 mr-2" /> Ngừng hoạt động
                             </a-menu-item>
                             <a-menu-item v-else class="!py-2" @click="active(record)">
@@ -101,18 +99,18 @@
                 </template>
             </a-table-column>
         </a-table>
-        <NewsDeleteDialog ref="adsDeleteDialog" />
+        <AdsDeleteDialog ref="adsDeleteDialog" />
     </div>
 </template>
 
 <script>
     import { mapDataFromOptions } from '@/utils/data';
-    import { NEWS_STATUS, NEWS_STATUS_OPTIONS } from '@/constants/ads/status';
-    import NewsDeleteDialog from '@/components/ads/dialogs/Delete.vue';
+    import { ADS_STATUS, ADS_STATUS_OPTIONS } from '@/constants/ads/status';
+    import AdsDeleteDialog from '@/components/ads/dialogs/Delete.vue';
 
     export default {
         components: {
-            NewsDeleteDialog,
+            AdsDeleteDialog,
         },
 
         props: {
@@ -132,17 +130,17 @@
 
         data() {
             return {
-                NEWS_STATUS,
+                ADS_STATUS,
             };
         },
 
         computed: {
-            NEWS_STATUS_LABELS() {
-                return mapDataFromOptions(NEWS_STATUS_OPTIONS, 'value', 'label');
+            ADS_STATUS_LABELS() {
+                return mapDataFromOptions(ADS_STATUS_OPTIONS, 'value', 'label');
             },
 
-            NEWS_STATUS_COLORS() {
-                return mapDataFromOptions(NEWS_STATUS_OPTIONS, 'value', 'color');
+            ADS_STATUS_COLORS() {
+                return mapDataFromOptions(ADS_STATUS_OPTIONS, 'value', 'color');
             },
         },
 
@@ -150,7 +148,7 @@
             // turn on active
             async active(data) {
                 try {
-                    await this.$api.ads.setActive(data.id);
+                    await this.$api.ads.update(data._id, { ...data, status: true });
                     await this.$store.dispatch('ads/fetchAll', this.$route.query);
                     this.$message.success('Bật hoạt động thành công!');
                 } catch (error) {
@@ -161,7 +159,7 @@
             // set inactive
             async inactive(data) {
                 try {
-                    await this.$api.ads.setInactive(data.id);
+                    await this.$api.ads.update(data._id, { ...data, status: false });
                     await this.$store.dispatch('ads/fetchAll', this.$route.query);
                     this.$message.success('Tắt hoạt động thành công!');
                 } catch (error) {

@@ -1,247 +1,168 @@
 <template>
-    <div class="grid grid-cols-12 gap-5">
-        <div class="col-span-8 flex flex-col gap-y-5">
-            <div>
-                <span class="block mb-2">Thông số kỹ thuật</span>
-                <Editor v-if="language === 'vi'" v-model="form.specifications" :disabled="!isEdit" />
-                <Editor v-else v-model="form.specificationsEn" :disabled="!isEdit" />
-            </div>
-            <div>
-                <span class="block mb-2">Ưu điểm ứng dụng</span>
-                <Editor v-if="language === 'en'" v-model="form.benefit" :disabled="!isEdit" />
-                <Editor v-else v-model="form.benefitEn" :disabled="!isEdit" />
-            </div>
-        </div>
-        <div class="col-span-4">
-            <a-form-model
-                ref="productForm"
-                :model="form"
-                :rules="rules"
-            >
-                <div class="flex flex-col gap-y-8">
-                    <a-form-model-item label="Ngôn ngữ">
-                        <a-select v-model="language" placeholder="Ngôn ngữ" class="!w-[150px]">
-                            <a-select-option value="vi">
-                                Tiếng Việt
-                            </a-select-option>
-                            <a-select-option value="en">
-                                Tiếng Anh
-                            </a-select-option>
-                        </a-select>
-                    </a-form-model-item>
-                    <a-form-model-item label="Chọn danh mục" prop="categoryId">
-                        <SelectRemote
-                            v-model="form.categoryId"
-                            class="col-span-4 md:col-span-4"
-                            placeholder="Danh mục"
-                            query="categoryIds"
-                            :router="false"
-                            fetch-url="posts/categories/fetchAll"
-                            option-label="name"
-                            option-value="id"
-                            store="posts.categories"
-                            store-prop="categories"
-                            :disabled="!isEdit"
-                        />
-                    </a-form-model-item>
-                    <a-form-model-item label="Tên bài viết" prop="name">
+    <div :class="`w-full 'bg-white' : 'bg-[#18191a]' px-3 xl:px-0 h-[calc(100vh-80px)] overflow-auto pb-4`">
+        <a-form-model
+            ref="form"
+            :model="form"
+            :rules="rules"
+        >
+            <div class="grid grid-cols-10 gap-4 pt-4">
+                <div :class="`col-span-7 p-3 rounded-md 'bg-white'`">
+                    <p>
+                        1. Thông tin cơ bản
+                    </p>
+                    <a-form-model-item
+                        prop="title"
+                        label="Tiêu đề bài viết"
+                        class="!mb-5"
+                    >
                         <a-input
-                            v-if="language === 'vi'"
-                            v-model="form.name"
-                            :disabled="!isEdit"
-                            placeholder="Vui lòng nhập"
-                        />
-                        <a-input
-                            v-else
-                            v-model="form.nameEn"
-                            :disabled="!isEdit"
-                            placeholder="Vui lòng nhập"
+                            v-model="form.title"
+                            placeholder="Nhập tiêu đề bài viết"
                         />
                     </a-form-model-item>
-                    <div>
-                        <span class="mb-2 block">Ảnh đại diện bài viết</span>
-                        <div class="flex items-center gap-x-5">
+                    <a-form-model-item has-feedback label="Mô tả ngắn" prop="description">
+                        <a-textarea
+                            v-model="form.description"
+                            :class="`${theme ? 'text-black' : 'dark-theme'}`"
+                            placeholder="Mô tả ngắn cho bài viết"
+                            :auto-size="{ minRows: 2, maxRows: 3 }"
+                        />
+                    </a-form-model-item>
+                    <Editor @getContent="getContent" />
+                </div>
+                <div :class="`col-span-3`">
+                    <div :class="`${theme ? 'bg-white' : 'bg-[#242526]'}  p-3 mb-3  rounded-md`">
+                        <p :class="`${theme ? 'text-black' : 'text-[#fff]'}`">
+                            2. Hình ảnh đại diện
+                        </p>
+                        <div class="flex flex-col items-center gap-y-8 mb-6 w-full">
                             <img
-                                v-if="thumbnailProduct.source"
-                                :src="thumbnailProduct.source"
+                                v-if="thumbnail"
+                                :src="thumbnail"
                                 onerror="this.src='/images/default-avatar.png'"
                                 alt=""
-                                class="w-[104px] h-[104px] rounded-sm object-cover border-solid p-1 border border-gray-50"
+                                class="w-full h-[200px] rounded-md object-cover"
                             >
-                            <div v-else class="w-[104px] h-[104px] rounded-sm border-dashed border border-gray-50 flex justify-center items-center">
+                            <div v-else class="w-full h-[200px] rounded-md border-dashed border border-gray-400 flex justify-center items-center">
                                 <span><i class="fas fa-plus" /></span>
                             </div>
-                            <a-upload
-                                :disabled="!isEdit"
-                                :show-upload-list="false"
-                                action=""
-                                :transform-file="handlerThumbnail"
+                            <input
+                                id="thumbnailImage"
+                                class="!hidden"
+                                type="file"
+                                accept="image/jpeg, image/png"
+                                @change="previewThumbnail"
                             >
-                                <div class="flex gap-x-3">
-                                    Tải tệp lên
+                            <div class="flex gap-x-2">
+                                <div :class="`flex items-center w-fit px-2 py-1 rounded-lg border cursor-pointer border-[#3aa554] hover:bg-[#3aa554] hover:text-[#fff] transition duration-150 ease-out hover:ease-in 'border-[#d3d3d3]' : 'border-[#3a3b3c]' }`" @click="openSelectFile">
+                                    <p :class="`mb-0 px-3 text-sm 'text-black' : 'text-[#fff]'}`">
+                                        {{ fileName ? 'Thay đổi' : 'Upload' }}
+                                    </p>
                                 </div>
-                            </a-upload>
-                        </div>
-                    </div>
-
-                    <div>
-                        <span class="mb-2 block">Hình ảnh bài viết ( tối đa 3 ảnh )</span>
-                        <div class="flex items-center gap-x-5">
-                            <div v-for="item,index in mediasProduct" :key="index" class="relative group">
-                                <img
-                                    v-if="item.source"
-                                    :src="item.source"
-                                    onerror="this.src='/images/default-avatar.png'"
-                                    alt=""
-                                    class="w-[104px] h-[104px] rounded-sm object-cover border-solid p-1 border border-gray-50"
-                                >
-                                <span
-                                    v-if="isEdit"
-                                    class="hidden transition duration-500 group-hover:block absolute w-full h-full text-center leading-[104px] top-0 left-0 right-0 after:content-['']
-                                            after:absolute after:w-full after:h-full after:top-0 after:left-0 after:right-0 after:bg-black/20 after:z-[0]"
-                                    @click="removeItemFileList(index)"
-                                ><i class="fas fa-trash text-white relative z-[1] cursor-pointer" /></span>
                             </div>
-                            <a-upload
-                                v-if="mediasProduct.length < 3"
-                                :disabled="!isEdit"
-                                :show-upload-list="false"
-                                :transform-file="handlerPreviewFileList"
+                        </div>
+                        <p :class="`${theme ? 'text-black' : 'text-[#fff]'}`">
+                            3. Danh mục bài viết
+                        </p>
+                        <div :class="`flex flex-col items-center gap-y-8 mb-6 w-full 'light-mode' : 'dark-mode'}`">
+                            <a-select
+                                placeholder="Danh mục"
+                                class="w-full"
+                                @change="selectCategory"
                             >
-                                <div class="w-[104px] h-[104px] rounded-sm border-dashed border border-gray-50 flex flex-col justify-center gap-y-2 items-center">
-                                    <span><i class="fas fa-plus" /></span>
-                                    <span>Tải lên</span>
-                                </div>
-                            </a-upload>
+                                <a-select-option v-for="item in topics" :key="item.id" :value="JSON.stringify(item)">
+                                    {{ item.label }}
+                                </a-select-option>
+                            </a-select>
                         </div>
                     </div>
 
-                    <a-form-model-item label="Mô tả bài viết" prop="description">
-                        <a-textarea
-                            v-if="language === 'vi'"
-                            v-model="form.description"
-                            :disabled="!isEdit"
-                            placeholder="Mô tả"
-                            :auto-size="{ minRows: 7, maxRows: 7 }"
-                        />
-                        <a-textarea
-                            v-else
-                            v-model="form.descriptionEn"
-                            :disabled="!isEdit"
-                            placeholder="Mô tả"
-                            :auto-size="{ minRows: 7, maxRows: 7 }"
-                        />
-                    </a-form-model-item>
+                    <button :class="`w-full ${!theme ? 'bg-[#3aa554] !text-white font-semibold' : 'bg-[#3aa554] !text-[#f5f5f5] border-[#242526]'} flex items-center justify-center px-3 py-2 rounded-md border cursor-pointer hover:border-[#3aa554] transition duration-150 ease-out hover:ease-in`" @click="submit">
+                        <p :class="`mb-0  text-sm text-center`">
+                            Gửi bài viết
+                        </p>
+                    </button>
                 </div>
-            </a-form-model>
-        </div>
+            </div>
+        </a-form-model>
     </div>
 </template>
 
 <script>
     import _cloneDeep from 'lodash/cloneDeep';
-    import { convertToFormData } from '@/utils/form';
     import Editor from '@/components/shared/Editor.vue';
-    import SelectRemote from '@/components/filters/SelectRemote.vue';
 
-    const defaultForm = {
-        name: null,
-        categoryId: null,
-        specifications: null,
-        benefit: null,
-        description: null,
-        thumbnail: null,
-        medias: [
-            {
-                isThumbnail: true,
-                source: 'string',
-                type: 'image',
-            },
-        ],
+    const form = {
+        title: '',
+        description: '',
+        content: '',
+        category: null,
     };
-
     export default {
+        layout: 'default',
         components: {
             Editor,
-            SelectRemote,
         },
-
-        props: {
-            product: {
-                type: Object,
-                default: () => {},
-            },
-            isEdit: {
-                type: Boolean,
-                default: true,
-            },
-        },
-
         data() {
             return {
-                language: 'vi',
-                form: this.product ? _cloneDeep(this.product) : _cloneDeep(defaultForm),
+                thumbnail: null,
+                fileName: null,
+                submited: false,
+                form: _cloneDeep(form),
                 rules: {
-                    name: [{ required: true, message: 'Không được để trống trường này', trigger: 'change' }],
-                    categoryId: [{ required: true, message: 'Không được để trống trường này', trigger: 'change' }],
-                    description: [{ required: true, message: 'Không được để trống trường này', trigger: 'change' }],
+                    title: [
+                        { required: true, message: 'Vui lòng nhập Tiêu đề', trigger: 'blur' },
+                    ],
+                    description: [
+                        { required: true, message: 'Vui lòng nhập Mô tả cho bài viết', trigger: 'blur' },
+                    ],
                 },
-                thumbnailProduct: {
-                    source: '',
-                },
-                cacheThumnail: {},
-                fileThumbnail: [],
-                mediasProduct: [],
-                fileMedias: [],
             };
         },
 
-        mounted() {
-            if (this.product) {
-                this.thumbnailProduct = _cloneDeep(this.product.medias).find((product) => product.isThumbnail === true) || {};
-                this.cacheThumnail = _cloneDeep(this.product.medias).find((product) => product.isThumbnail === true);
-                this.form.medias = _cloneDeep(this.product.medias).filter((item) => item.isThumbnail === false);
-                this.mediasProduct = _cloneDeep(this.product.medias).filter((item) => item.isThumbnail === false);
-            }
+        computed: {
         },
-
         methods: {
-            handlerThumbnail(file) {
-                this.fileThumbnail = file;
-                this.thumbnailProduct.source = URL.createObjectURL(file);
+            openSelectFile() {
+                document.querySelector('#thumbnailImage').click();
             },
-
-            handlerPreviewFileList(file) {
-                this.fileMedias.push(file);
-                this.mediasProduct.push({ source: URL.createObjectURL(file) });
+            previewThumbnail() {
+                const imageSelect = document.querySelector('#thumbnailImage').files[0];
+                this.fileName = imageSelect.name;
+                this.thumbnail = URL.createObjectURL(imageSelect);
             },
-
-            removeItemFileList(key) {
-                this.fileMedias = this.fileMedias.filter((item, index) => index !== key);
-                this.mediasProduct = this.mediasProduct.filter((item, index) => index !== key);
-                this.form.medias = this.mediasProduct.filter((item, index) => index !== key);
+            handlerThumbnail() {
+                const formData = new FormData();
+                const imageSelected = document.querySelector('#thumbnailImage').files[0];
+                formData.append('image', imageSelected);
+                this.$axios.post('http://localhost:8000/images/upload', formData, {
+                    headers: { 'Content-Type': 'multipart/form-data' },
+                })
+                    .then((res) => console.log(res))
+                    .catch((err) => console.log(err))
+                    .finally(() => false);
             },
-
+            selectCategory(category) {
+                const categoryParse = JSON.parse(category);
+                this.form.category = {
+                    categoryId: categoryParse.id,
+                    label: categoryParse.label,
+                    slug: categoryParse.slug,
+                };
+            },
+            getContent(content) {
+                this.form.content = content;
+            },
             async submit() {
-                this.$refs.productForm.validate(async (valid) => {
-                    if (valid) {
-                        if (this.fileMedias) {
-                            const { data: { fileAttributes } } = await this.$api.uploader.uploadImage(convertToFormData({
-                                files: this.fileMedias,
-                            }));
-                            this.form.medias = [...this.form.medias, ...fileAttributes];
-                        }
-                        if (this.fileThumbnail.length !== 0) {
-                            const thumnail = await this.$api.uploader.uploadImage(convertToFormData({
-                                files: this.fileThumbnail,
-                            }));
-                            this.form.medias = [...this.form.medias, { ...thumnail.data.fileAttributes[0], isThumbnail: true }];
-                        } else {
-                            this.form.medias = [...this.form.medias, { ...this.cacheThumnail }];
-                        }
-                        this.$emit('submit', this.form);
-                    }
-                });
+                const upPost = await this.create({ ...this.form, thumbnail: this.fileName });
+                const upImage = await this.handlerThumbnail();
+                if (upPost && upImage) {
+                    this.$message.success('Gửi bài viết thành công!');
+                    this.form = _cloneDeep(form);
+                    this.fileName = '';
+                    this.thumbnail = '';
+                }
+                URL.revokeObjectURL(this.thumbnail);
             },
         },
     };

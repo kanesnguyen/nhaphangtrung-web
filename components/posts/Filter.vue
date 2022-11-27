@@ -4,7 +4,7 @@
             class="col-span-4 md:col-span-4"
             label="Tìm kiếm"
             placeholder="Tìm kiếm theo tên, nội dung..."
-            query="freeWord"
+            query="searchKey"
         />
         <SelectRemoteFilter
             class="col-span-4 md:col-span-4"
@@ -12,9 +12,8 @@
             query="categoryIds"
             router
             label="Danh mục"
-            fetch-url="posts/categories/fetchAll"
-            option-label="name"
-            option-value="id"
+            option-label="label"
+            option-value="value"
             store="posts.categories"
             store-prop="categories"
         />
