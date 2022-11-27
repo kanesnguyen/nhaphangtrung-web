@@ -108,7 +108,7 @@ export default {
                 },
                 autoLogout: false,
                 user: {
-                    property: 'data.admin',
+                    property: 'data.currentAdmin',
                     autoFetch: true,
                 },
                 endpoints: {
@@ -118,14 +118,14 @@ export default {
                     },
                     logout: false,
                     user: {
-                        url: `${process.env.API_HOST}/a/sessions/current_admin`,
+                        url: `${process.env.API_HOST}/a/account`,
                         method: 'GET',
                     },
                 },
                 redirect: {
                     login: '/login',
                     logout: '/',
-                    callback: '/login',
+                    // callback: '/login',
                     home: '/',
                 },
             },

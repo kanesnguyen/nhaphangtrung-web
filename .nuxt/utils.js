@@ -200,7 +200,7 @@ export async function setContext (app, context) {
       payload: context.payload,
       error: context.error,
       base: app.router.options.base,
-      env: {"API_HOST":"https://eih-api.flextech.asia/api","TINYMCE_KEY":"4iq6nla055c3prj2s3og5di06o9gkby8r0bk7xh1c2s6wp7u","IMAGE_BASE_URL":"https://eih-api.flextech.asia/api/uploaders/"}
+      env: {"API_HOST":"http://localhost:3000/api"}
     }
     // Only set once
 

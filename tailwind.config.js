@@ -21,7 +21,7 @@ module.exports = {
             black: colors.black,
             white: colors.white,
             prim: {
-                100: '#ff7d00',
+                100: '#3aa554',
                 20: '#d4dbf9',
             },
             success: {

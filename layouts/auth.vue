@@ -22,7 +22,7 @@
                     <nuxt />
                 </div>
                 <div>
-                    &copy; {{ currentYear }} Công ty cổ phần điện công nghiệp Hà Nội
+                    &copy; {{ currentYear }} Journal Company
                 </div>
             </div>
         </div>

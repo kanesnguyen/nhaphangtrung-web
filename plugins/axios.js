@@ -9,7 +9,6 @@ export default function ({ $axios, redirect }, inject) {
     });
 
     const handleError = (error, callback = null) => {
-        console.log(error);
         const errorData = error?.response?.data;
         if (callback) {
             callback(error);

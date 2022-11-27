@@ -3,182 +3,156 @@
     "name": "feedbacks",
     "path": "/feedbacks",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\feedbacks\\\\index.vue",
-    "chunkName": "pages/feedbacks/index",
-    "_name": "_45681fb7"
+    "chunkName": "pages/feedbacks/index"
   },
   {
     "name": "forgot-password",
     "path": "/forgot-password",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\forgot-password.vue",
-    "chunkName": "pages/forgot-password",
-    "_name": "_bd47f0bc"
+    "chunkName": "pages/forgot-password"
   },
   {
     "name": "login",
     "path": "/login",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\login.vue",
-    "chunkName": "pages/login",
-    "_name": "_2e7ea546"
+    "chunkName": "pages/login"
   },
   {
     "name": "news",
     "path": "/news",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\news\\\\index.vue",
-    "chunkName": "pages/news/index",
-    "_name": "_55f1c23c"
+    "chunkName": "pages/news/index"
   },
   {
     "name": "partners",
     "path": "/partners",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\partners\\\\index.vue",
-    "chunkName": "pages/partners/index",
-    "_name": "_fd482238"
+    "chunkName": "pages/partners/index"
   },
   {
     "name": "products",
     "path": "/products",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\products\\\\index.vue",
-    "chunkName": "pages/products/index",
-    "_name": "_123adc8b"
+    "chunkName": "pages/products/index"
   },
   {
     "name": "projects",
     "path": "/projects",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\projects\\\\index.vue",
-    "chunkName": "pages/projects/index",
-    "_name": "_84212896"
+    "chunkName": "pages/projects/index"
   },
   {
     "name": "recruitments",
     "path": "/recruitments",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\recruitments\\\\index.vue",
-    "chunkName": "pages/recruitments/index",
-    "_name": "_56f5f738"
+    "chunkName": "pages/recruitments/index"
   },
   {
     "name": "users",
     "path": "/users",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\users\\\\index.vue",
-    "chunkName": "pages/users/index",
-    "_name": "_630ea706"
+    "chunkName": "pages/users/index"
   },
   {
     "name": "news-create",
     "path": "/news/create",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\news\\\\create.vue",
-    "chunkName": "pages/news/create",
-    "_name": "_e00a5ffc"
+    "chunkName": "pages/news/create"
   },
   {
     "name": "products-categories",
     "path": "/products/categories",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\products\\\\categories\\\\index.vue",
-    "chunkName": "pages/products/categories/index",
-    "_name": "_2028b022"
+    "chunkName": "pages/products/categories/index"
   },
   {
     "name": "products-create",
     "path": "/products/create",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\products\\\\create.vue",
-    "chunkName": "pages/products/create",
-    "_name": "_5cd4ff93"
+    "chunkName": "pages/products/create"
   },
   {
     "name": "projects-create",
     "path": "/projects/create",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\projects\\\\create.vue",
-    "chunkName": "pages/projects/create",
-    "_name": "_27b255a9"
+    "chunkName": "pages/projects/create"
   },
   {
     "name": "recruitments-create",
     "path": "/recruitments/create",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\recruitments\\\\create.vue",
-    "chunkName": "pages/recruitments/create",
-    "_name": "_a1058af4"
+    "chunkName": "pages/recruitments/create"
   },
   {
     "name": "services-create",
     "path": "/services/create",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\services\\\\create.vue",
-    "chunkName": "pages/services/create",
-    "_name": "_6634d0e6"
+    "chunkName": "pages/services/create"
   },
   {
     "name": "settings-banners",
     "path": "/settings/banners",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\settings\\\\banners\\\\index.vue",
-    "chunkName": "pages/settings/banners/index",
-    "_name": "_0028c3fe"
+    "chunkName": "pages/settings/banners/index"
   },
   {
     "name": "settings-contact",
     "path": "/settings/contact",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\settings\\\\contact\\\\index.vue",
-    "chunkName": "pages/settings/contact/index",
-    "_name": "_610d81f0"
+    "chunkName": "pages/settings/contact/index"
   },
   {
     "name": "libraries-type",
     "path": "/libraries/:type",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\libraries\\\\_type\\\\index.vue",
-    "chunkName": "pages/libraries/_type/index",
-    "_name": "_7bb0e78f"
+    "chunkName": "pages/libraries/_type/index"
   },
   {
     "name": "news-id",
     "path": "/news/:id",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\news\\\\_id.vue",
-    "chunkName": "pages/news/_id",
-    "_name": "_ab79b8b8"
+    "chunkName": "pages/news/_id"
   },
   {
     "name": "products-id",
     "path": "/products/:id",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\products\\\\_id\\\\index.vue",
-    "chunkName": "pages/products/_id/index",
-    "_name": "_cb8ee122"
+    "chunkName": "pages/products/_id/index"
   },
   {
     "name": "projects-id",
     "path": "/projects/:id",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\projects\\\\_id\\\\index.vue",
-    "chunkName": "pages/projects/_id/index",
-    "_name": "_6bb0ea85"
+    "chunkName": "pages/projects/_id/index"
   },
   {
     "name": "recruitments-slug",
     "path": "/recruitments/:slug",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\recruitments\\\\_slug.vue",
-    "chunkName": "pages/recruitments/_slug",
-    "_name": "_553f55f0"
+    "chunkName": "pages/recruitments/_slug"
   },
   {
     "name": "services-id",
     "path": "/services/:id",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\services\\\\_id\\\\index.vue",
-    "chunkName": "pages/services/_id/index",
-    "_name": "_402ecb2e"
+    "chunkName": "pages/services/_id/index"
   },
   {
     "name": "products-id-edit",
     "path": "/products/:id/edit",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\products\\\\_id\\\\edit.vue",
-    "chunkName": "pages/products/_id/edit",
-    "_name": "_6de72c06"
+    "chunkName": "pages/products/_id/edit"
   },
   {
     "name": "projects-id-edit",
     "path": "/projects/:id/edit",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\projects\\\\_id\\\\edit.vue",
-    "chunkName": "pages/projects/_id/edit",
-    "_name": "_5c315427"
+    "chunkName": "pages/projects/_id/edit"
   },
   {
     "name": "index",
     "path": "/",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_64d7022f"
+    "chunkName": "pages/index"
   }
 ]

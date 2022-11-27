@@ -2,11 +2,11 @@
 <template>
     <div class="bg-[#2a3042] a-the-sidebar-vertical max-h-screen h-full flex flex-col" :class="[collapsed ? 'w-auto' : '!w-[260px]']">
         <div class="h-[65px] flex justify-between items-center" :class="[collapsed ? 'px-4' : 'px-6']">
-            <nuxt-link class="flex justify-center items-center mt-1" to="/">
+            <!-- <nuxt-link class="flex justify-center items-center mt-1" to="/">
                 <img src="/images/logo-white.svg" width="50">
-            </nuxt-link>
+            </nuxt-link> -->
             <div v-show="!collapsed" class="text-white font-semibold">
-                CMS Website
+                Journal CMS
             </div>
         </div>
         <a-menu

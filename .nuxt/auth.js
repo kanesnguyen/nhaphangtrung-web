@@ -51,24 +51,23 @@ export default function (ctx, inject) {
   },
   "autoLogout": false,
   "user": {
-    "property": "data.admin",
+    "property": "data.currentAdmin",
     "autoFetch": true
   },
   "endpoints": {
     "login": {
-      "url": "https://eih-api.flextech.asia/api/a/sessions/login",
+      "url": "http://localhost:3000/api/a/sessions/login",
       "method": "POST"
     },
     "logout": false,
     "user": {
-      "url": "https://eih-api.flextech.asia/api/a/sessions/current_admin",
+      "url": "http://localhost:3000/api/a/account",
       "method": "GET"
     }
   },
   "redirect": {
     "login": "/login",
     "logout": "/",
-    "callback": "/login",
     "home": "/"
   },
   "name": "local"
