@@ -10,8 +10,8 @@
             </div>
         </div>
         <div class="flex items-center gap-6">
-            <a href="tel:024 12 345678" class="font-semibold">
-                <i class="fas fa-phone-alt text-gray-100" /> <span class="hidden md:inline text-danger-100">024 12 345678</span>
+            <a href="tel:0963395763" class="font-semibold">
+                <i class="fas fa-phone-alt text-gray-100" /> <span class="hidden md:inline text-[#3aa554]">0963395763</span>
             </a>
             <div class="font-semibold">
                 <i class="fas fa-question-circle" /> <span class="hidden md:inline">Trợ giúp</span>

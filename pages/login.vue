@@ -79,7 +79,7 @@
 
         head() {
             return {
-                title: 'Đăng nhập | Nuxt Boilerplate',
+                title: 'Đăng nhập',
             };
         },
     };

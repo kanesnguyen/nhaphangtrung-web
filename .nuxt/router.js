@@ -4,31 +4,22 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
+const _52db7395 = () => interopDefault(import('..\\pages\\ads\\index.vue' /* webpackChunkName: "pages/ads/index" */))
 const _45681fb7 = () => interopDefault(import('..\\pages\\feedbacks\\index.vue' /* webpackChunkName: "pages/feedbacks/index" */))
 const _bd47f0bc = () => interopDefault(import('..\\pages\\forgot-password.vue' /* webpackChunkName: "pages/forgot-password" */))
 const _2e7ea546 = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages/login" */))
-const _55f1c23c = () => interopDefault(import('..\\pages\\news\\index.vue' /* webpackChunkName: "pages/news/index" */))
-const _fd482238 = () => interopDefault(import('..\\pages\\partners\\index.vue' /* webpackChunkName: "pages/partners/index" */))
-const _123adc8b = () => interopDefault(import('..\\pages\\products\\index.vue' /* webpackChunkName: "pages/products/index" */))
-const _84212896 = () => interopDefault(import('..\\pages\\projects\\index.vue' /* webpackChunkName: "pages/projects/index" */))
-const _56f5f738 = () => interopDefault(import('..\\pages\\recruitments\\index.vue' /* webpackChunkName: "pages/recruitments/index" */))
-const _630ea706 = () => interopDefault(import('..\\pages\\users\\index.vue' /* webpackChunkName: "pages/users/index" */))
-const _e00a5ffc = () => interopDefault(import('..\\pages\\news\\create.vue' /* webpackChunkName: "pages/news/create" */))
-const _2028b022 = () => interopDefault(import('..\\pages\\products\\categories\\index.vue' /* webpackChunkName: "pages/products/categories/index" */))
-const _5cd4ff93 = () => interopDefault(import('..\\pages\\products\\create.vue' /* webpackChunkName: "pages/products/create" */))
-const _27b255a9 = () => interopDefault(import('..\\pages\\projects\\create.vue' /* webpackChunkName: "pages/projects/create" */))
-const _a1058af4 = () => interopDefault(import('..\\pages\\recruitments\\create.vue' /* webpackChunkName: "pages/recruitments/create" */))
+const _3658c1d2 = () => interopDefault(import('..\\pages\\posts\\index.vue' /* webpackChunkName: "pages/posts/index" */))
+const _304749c9 = () => interopDefault(import('..\\pages\\ads\\create.vue' /* webpackChunkName: "pages/ads/create" */))
+const _2bb0dab6 = () => interopDefault(import('..\\pages\\posts\\categories\\index.vue' /* webpackChunkName: "pages/posts/categories/index" */))
+const _871879a8 = () => interopDefault(import('..\\pages\\posts\\create.vue' /* webpackChunkName: "pages/posts/create" */))
 const _6634d0e6 = () => interopDefault(import('..\\pages\\services\\create.vue' /* webpackChunkName: "pages/services/create" */))
-const _0028c3fe = () => interopDefault(import('..\\pages\\settings\\banners\\index.vue' /* webpackChunkName: "pages/settings/banners/index" */))
-const _610d81f0 = () => interopDefault(import('..\\pages\\settings\\contact\\index.vue' /* webpackChunkName: "pages/settings/contact/index" */))
+const _7d37cef0 = () => interopDefault(import('..\\pages\\users\\author.vue' /* webpackChunkName: "pages/users/author" */))
+const _04377518 = () => interopDefault(import('..\\pages\\users\\manager.vue' /* webpackChunkName: "pages/users/manager" */))
+const _df295186 = () => interopDefault(import('..\\pages\\ads\\_id.vue' /* webpackChunkName: "pages/ads/_id" */))
 const _7bb0e78f = () => interopDefault(import('..\\pages\\libraries\\_type\\index.vue' /* webpackChunkName: "pages/libraries/_type/index" */))
-const _ab79b8b8 = () => interopDefault(import('..\\pages\\news\\_id.vue' /* webpackChunkName: "pages/news/_id" */))
-const _cb8ee122 = () => interopDefault(import('..\\pages\\products\\_id\\index.vue' /* webpackChunkName: "pages/products/_id/index" */))
-const _6bb0ea85 = () => interopDefault(import('..\\pages\\projects\\_id\\index.vue' /* webpackChunkName: "pages/projects/_id/index" */))
-const _553f55f0 = () => interopDefault(import('..\\pages\\recruitments\\_slug.vue' /* webpackChunkName: "pages/recruitments/_slug" */))
+const _81ac42f0 = () => interopDefault(import('..\\pages\\posts\\_id\\index.vue' /* webpackChunkName: "pages/posts/_id/index" */))
 const _402ecb2e = () => interopDefault(import('..\\pages\\services\\_id\\index.vue' /* webpackChunkName: "pages/services/_id/index" */))
-const _6de72c06 = () => interopDefault(import('..\\pages\\products\\_id\\edit.vue' /* webpackChunkName: "pages/products/_id/edit" */))
-const _5c315427 = () => interopDefault(import('..\\pages\\projects\\_id\\edit.vue' /* webpackChunkName: "pages/projects/_id/edit" */))
+const _359853c4 = () => interopDefault(import('..\\pages\\posts\\_id\\edit.vue' /* webpackChunkName: "pages/posts/_id/edit" */))
 const _64d7022f = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
@@ -43,6 +34,10 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
+    path: "/ads",
+    component: _52db7395,
+    name: "ads"
+  }, {
     path: "/feedbacks",
     component: _45681fb7,
     name: "feedbacks"
@@ -55,93 +50,53 @@ export const routerOptions = {
     component: _2e7ea546,
     name: "login"
   }, {
-    path: "/news",
-    component: _55f1c23c,
-    name: "news"
+    path: "/posts",
+    component: _3658c1d2,
+    name: "posts"
   }, {
-    path: "/partners",
-    component: _fd482238,
-    name: "partners"
+    path: "/ads/create",
+    component: _304749c9,
+    name: "ads-create"
   }, {
-    path: "/products",
-    component: _123adc8b,
-    name: "products"
+    path: "/posts/categories",
+    component: _2bb0dab6,
+    name: "posts-categories"
   }, {
-    path: "/projects",
-    component: _84212896,
-    name: "projects"
-  }, {
-    path: "/recruitments",
-    component: _56f5f738,
-    name: "recruitments"
-  }, {
-    path: "/users",
-    component: _630ea706,
-    name: "users"
-  }, {
-    path: "/news/create",
-    component: _e00a5ffc,
-    name: "news-create"
-  }, {
-    path: "/products/categories",
-    component: _2028b022,
-    name: "products-categories"
-  }, {
-    path: "/products/create",
-    component: _5cd4ff93,
-    name: "products-create"
-  }, {
-    path: "/projects/create",
-    component: _27b255a9,
-    name: "projects-create"
-  }, {
-    path: "/recruitments/create",
-    component: _a1058af4,
-    name: "recruitments-create"
+    path: "/posts/create",
+    component: _871879a8,
+    name: "posts-create"
   }, {
     path: "/services/create",
     component: _6634d0e6,
     name: "services-create"
   }, {
-    path: "/settings/banners",
-    component: _0028c3fe,
-    name: "settings-banners"
+    path: "/users/author",
+    component: _7d37cef0,
+    name: "users-author"
   }, {
-    path: "/settings/contact",
-    component: _610d81f0,
-    name: "settings-contact"
+    path: "/users/manager",
+    component: _04377518,
+    name: "users-manager"
+  }, {
+    path: "/ads/:id",
+    component: _df295186,
+    name: "ads-id"
   }, {
     path: "/libraries/:type",
     component: _7bb0e78f,
     name: "libraries-type"
   }, {
-    path: "/news/:id",
-    component: _ab79b8b8,
-    name: "news-id"
-  }, {
-    path: "/products/:id",
-    component: _cb8ee122,
-    name: "products-id"
-  }, {
-    path: "/projects/:id",
-    component: _6bb0ea85,
-    name: "projects-id"
-  }, {
-    path: "/recruitments/:slug",
-    component: _553f55f0,
-    name: "recruitments-slug"
+    path: "/posts/:id",
+    component: _81ac42f0,
+    name: "posts-id"
   }, {
     path: "/services/:id",
     component: _402ecb2e,
     name: "services-id"
   }, {
-    path: "/products/:id/edit",
-    component: _6de72c06,
-    name: "products-id-edit"
-  }, {
-    path: "/projects/:id/edit",
-    component: _5c315427,
-    name: "projects-id-edit"
+    path: "/posts/:id/edit",
+    component: _359853c4,
+    name: "posts-id-edit"
   }, {
     path: "/",
     component: _64d7022f,

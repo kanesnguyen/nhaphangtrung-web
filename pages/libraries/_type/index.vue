@@ -6,10 +6,10 @@
                 <i class="fas fa-plus mr-2" /> Thêm mới
             </a-button>
         </div>
-        <div v-if="libraries.length" class="flex-grow flex flex-col">
+        <div v-if="users.length" class="flex-grow flex flex-col">
             <a-spin :spinning="loading" class="flex-grow">
                 <div class="items-start gap-4 grid grid-cols-1 sm:grid-cols-2 lg:sm:grid-cols-3 xl:sm:grid-cols-4">
-                    <LibraryItem v-for="library in libraries" :key="library.id" :library="library" />
+                    <LibraryItem v-for="user in users" :key="user.id" :user="user" />
                 </div>
             </a-spin>
             <ct-pagination :data="pagination" class="mt-4" />
@@ -21,8 +21,8 @@
 
 <script>
     import { mapState } from 'vuex';
-    import LibraryItem from '@/components/libraries/Item.vue';
-    import LibraryDialog from '@/components/libraries/Dialog.vue';
+    import LibraryItem from '@/components/users/Item.vue';
+    import LibraryDialog from '@/components/users/Dialog.vue';
 
     export default {
         components: {
@@ -41,7 +41,7 @@
         },
 
         computed: {
-            ...mapState('libraries', ['libraries', 'pagination']),
+            ...mapState('users', ['users', 'pagination']),
         },
 
         watch: {
@@ -55,19 +55,19 @@
         mounted() {
             this.$store.commit('breadcrumbs/SET_BREADCRUMBS', [{
                 label: 'Thư viện',
-                link: '/libraries',
+                link: '/users',
             }]);
         },
 
         beforeDestroy() {
-            this.$store.commit('libraries/SET_LIBRARIES', []);
+            this.$store.commit('users/SET_LIBRARIES', []);
         },
 
         methods: {
             async fetchData() {
                 try {
                     this.loading = true;
-                    await this.$store.dispatch('libraries/fetchAll', {
+                    await this.$store.dispatch('users/fetchAll', {
                         ...this.$route.query,
                         type: this.$route.params.type,
                     });

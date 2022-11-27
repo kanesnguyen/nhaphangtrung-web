@@ -1,11 +1,11 @@
 /* eslint-disable vue/no-v-model-argument */
 <template>
     <div class="bg-[#2a3042] a-the-sidebar-vertical max-h-screen h-full flex flex-col" :class="[collapsed ? 'w-auto' : '!w-[260px]']">
-        <div class="h-[65px] flex justify-between items-center" :class="[collapsed ? 'px-4' : 'px-6']">
+        <div class="h-[65px] flex justify-center items-center" :class="[collapsed ? 'px-4' : 'px-6']">
             <!-- <nuxt-link class="flex justify-center items-center mt-1" to="/">
                 <img src="/images/logo-white.svg" width="50">
             </nuxt-link> -->
-            <div v-show="!collapsed" class="text-white font-semibold">
+            <div v-show="!collapsed" class="text-white font-semibold text-3xl">
                 Journal CMS
             </div>
         </div>

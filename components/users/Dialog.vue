@@ -3,10 +3,15 @@
         v-model="visible"
         destroy-on-close
         :mask-closable="false"
-        :title="`${user ? 'Chỉnh sửa' : 'Thêm mới'} người dùng`"
+        :title="`${user ? 'Chỉnh sửa' : 'Thêm mới'} thư viện`"
         width="650px"
     >
-        <UserForm ref="userForm" :user="user" @submit="handleSubmit" />
+        <LibraryForm
+            ref="libraryForm"
+            :type="type"
+            :user="user"
+            @submit="handleSubmit"
+        />
         <div slot="footer" class="flex justify-center items-center gap-2">
             <a-button class="w-28" @click="close">
                 Hủy bỏ
@@ -15,22 +20,20 @@
                 :loading="loading"
                 class="w-28"
                 type="primary"
-                @click="$refs.userForm.submit()"
+                @click="$refs.libraryForm.submit()"
             >
-                Thêm mới
+                {{ user ? 'Cập nhật' : 'Thêm mới' }}
             </a-button>
         </div>
     </a-modal>
 </template>
 
 <script>
-    import UserForm from '@/components/users/Form.vue';
-
-    const PASSWORD_NOT_CHANGED = 'PASSWORD_NOT_CHANGED';
+    import LibraryForm from '@/components/users/Form.vue';
 
     export default {
         components: {
-            UserForm,
+            LibraryForm,
         },
 
         data() {
@@ -38,23 +41,14 @@
                 visible: false,
                 loading: false,
                 user: null,
-                encryptor: null,
-            };
-        },
-
-        mounted() {
-            const { JSEncrypt } = require('jsencrypt');
-            this.encryptor = (message) => {
-                const encrypt = new JSEncrypt();
-                encrypt.setPublicKey(process.env.RSA_PUBLIC_KEY);
-
-                return encrypt.encrypt(message);
+                type: undefined,
             };
         },
 
         methods: {
-            open(user) {
+            open(type, user) {
                 this.user = user;
+                this.type = type;
                 this.visible = true;
             },
 
@@ -64,23 +58,20 @@
 
             async handleSubmit(form) {
                 if (this.user) {
-                    await this.updateUser(form);
+                    await this.updateLibrary(form);
                 } else {
-                    await this.createUser(form);
+                    await this.createLibrary(form);
                 }
                 this.close();
                 await this.$nuxt.refresh();
             },
 
-            async createUser(form) {
+            async createLibrary(form) {
                 try {
                     this.loading = true;
-                    await this.$api.users.create({
-                        ...form,
-                        password: this.encryptor(form.password),
-                    });
+                    await this.$api.users.create(form);
                     this.close();
-                    this.message.success('Thêm người dùng thành công');
+                    this.$message.success('Thêm thư viện thành công');
                 } catch (error) {
                     this.$handleError(error);
                 } finally {
@@ -88,15 +79,12 @@
                 }
             },
 
-            async updateUser(form) {
+            async updateLibrary(form) {
                 try {
                     this.loading = true;
-                    await this.$api.users.update(this.user.userId, {
-                        ...form,
-                        password: form.password ? this.encryptor(form.password) : PASSWORD_NOT_CHANGED,
-                    });
+                    await this.$api.users.update(this.user.id, form);
                     this.close();
-                    this.message.success('Cập nhật thông tin người dùng thành công');
+                    this.$message.success('Cập nhật thông tin thư viện thành công');
                 } catch (error) {
                     this.$handleError(error);
                 } finally {

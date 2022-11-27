@@ -1,59 +1,38 @@
 export default [{
     route: '/',
-    label: 'Dịch vụ',
+    label: 'Tổng quát',
     icon: 'fas fa-home',
 }, {
-    route: '/products',
-    label: 'Sản phẩm',
+    route: '/posts',
+    label: 'Bài viết',
     icon: 'fas fa-cube',
     childs: [{
-        label: 'Danh sách sản phẩm',
-        route: '/products',
+        label: 'Danh sách bài viết',
+        route: '/posts',
     }, {
-        label: 'Danh mục sản phẩm',
-        route: '/products/categories',
+        label: 'Cần phê duyệt',
+        route: '/posts/confirm',
+    }, {
+        label: 'Danh mục bài viết',
+        route: '/posts/categories',
     }],
 }, {
-    route: '/projects',
-    label: 'Dự án',
-    icon: 'fas fa-file-invoice',
-}, {
-    route: '/news',
-    label: 'Tin tức',
+    route: '/ads',
+    label: 'Quảng cáo',
     icon: 'fas fa-newspaper',
 }, {
-    route: '/libraries',
-    label: 'Thư viện',
-    icon: 'fas fa-images',
+    route: '/users',
+    label: 'Người dùng',
+    icon: 'fas fa-users',
     childs: [{
-        label: 'Chứng chỉ',
-        route: '/libraries/certificate',
+        label: 'Tác giả',
+        route: '/users/author',
     }, {
-        label: 'Profile',
-        route: '/libraries/profile',
+        label: 'Quản lý',
+        route: '/users/manager',
     }],
-}, {
-    label: 'Tuyển dụng',
-    route: '/recruitments',
-    icon: 'fas fa-address-card',
-}, {
-    route: '/partners',
-    label: 'Đối tác',
-    icon: 'far fa-list-alt',
 }, {
     route: '/feedbacks',
-    label: 'Phản hồi khách hàng',
+    label: 'Phản hồi',
     icon: 'fas fa-comments',
-}, {
-    route: '/settings',
-    label: 'Cài đặt hệ thống',
-    icon: 'fas fa-cog',
-    childs: [{
-        label: 'Banner',
-        route: '/settings/banners',
-    }, {
-        route: '/settings/contact',
-        label: 'Liên hệ',
-        icon: 'fas fa-phone-alt',
-    }],
 }];

@@ -19,39 +19,29 @@ let store = {};
   // Enforce store modules
   store.modules = store.modules || {}
 
+  resolveStoreModules(require('..\\store\\ads.js'), 'ads.js')
   resolveStoreModules(require('..\\store\\breadcrumbs.js'), 'breadcrumbs.js')
   resolveStoreModules(require('..\\store\\feedbacks.js'), 'feedbacks.js')
-  resolveStoreModules(require('..\\store\\libraries.js'), 'libraries.js')
-  resolveStoreModules(require('..\\store\\news.js'), 'news.js')
-  resolveStoreModules(require('..\\store\\partners.js'), 'partners.js')
-  resolveStoreModules(require('..\\store\\projects.js'), 'projects.js')
-  resolveStoreModules(require('..\\store\\recruitments.js'), 'recruitments.js')
   resolveStoreModules(require('..\\store\\selections.js'), 'selections.js')
   resolveStoreModules(require('..\\store\\services.js'), 'services.js')
   resolveStoreModules(require('..\\store\\users.js'), 'users.js')
-  resolveStoreModules(require('..\\store\\products\\index.js'), 'products/index.js')
-  resolveStoreModules(require('..\\store\\products\\categories.js'), 'products/categories.js')
-  resolveStoreModules(require('..\\store\\settings\\banners.js'), 'settings/banners.js')
+  resolveStoreModules(require('..\\store\\posts\\index.js'), 'posts/index.js')
+  resolveStoreModules(require('..\\store\\posts\\categories.js'), 'posts/categories.js')
 
   // If the environment supports hot reloading...
 
   if (process.client && module.hot) {
     // Whenever any Vuex module is updated...
     module.hot.accept([
+      '..\\store\\ads.js',
       '..\\store\\breadcrumbs.js',
       '..\\store\\feedbacks.js',
       '..\\store\\index.js',
-      '..\\store\\libraries.js',
-      '..\\store\\news.js',
-      '..\\store\\partners.js',
-      '..\\store\\projects.js',
-      '..\\store\\recruitments.js',
       '..\\store\\selections.js',
       '..\\store\\services.js',
       '..\\store\\users.js',
-      '..\\store\\products\\index.js',
-      '..\\store\\products\\categories.js',
-      '..\\store\\settings\\banners.js',
+      '..\\store\\posts\\index.js',
+      '..\\store\\posts\\categories.js',
     ], () => {
       // Update `root.modules` with the latest definitions.
       updateModules()

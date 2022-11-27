@@ -71,7 +71,7 @@
 
         head() {
             return {
-                title: 'Lấy lại mật khẩu | EIH CMS',
+                title: 'Lấy lại mật khẩu | JOURNAL CMS',
             };
         },
     };

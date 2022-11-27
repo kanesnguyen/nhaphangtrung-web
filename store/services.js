@@ -21,8 +21,8 @@ export const actions = {
         commit('SET_STATE', { prop: 'pagination', data: pagination });
     },
 
-    async fetchDetail({ commit }, newsId) {
-        const { data: { service } } = await this.$api.services.getDetail(newsId);
+    async fetchDetail({ commit }, adsId) {
+        const { data: { service } } = await this.$api.services.getDetail(adsId);
         commit('SET_STATE', { prop: 'service', data: service });
     },
 };

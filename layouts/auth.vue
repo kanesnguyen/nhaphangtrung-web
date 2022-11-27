@@ -6,11 +6,8 @@
         />
         <div class="w-screen md:w-[500px] flex flex-col items-center mx-4 my-4">
             <div class="flex-grow min-w-[400px] flex flex-col items-center justify-between h-full">
-                <div class="flex items-center justify-between w-full">
-                    <img src="/images/logo.svg">
-                    <div class="text-xl text-prim-100">
-                        CMS Website EIH
-                    </div>
+                <div class="flex items-center justify-center w-full">
+                    <img src="/images/logo.png">
                 </div>
                 <div class="w-full">
                     <div class="mb-6">

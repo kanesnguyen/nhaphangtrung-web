@@ -17,8 +17,8 @@ export default {
     },
 
     head: {
-        title: 'eih-cms',
-        titleTemplate: '%s | EIH CMS',
+        title: 'journal-cms',
+        titleTemplate: '%s | JOURNAL CMS',
         htmlAttrs: {
             lang: 'en',
         },

@@ -94,7 +94,7 @@
         },
         head() {
             return {
-                title: 'Cập nhật dịch vụ | EIH CMS',
+                title: 'Cập nhật dịch vụ | JOURNAL CMS',
             };
         },
     };

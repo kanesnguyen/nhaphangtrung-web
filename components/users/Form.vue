@@ -6,33 +6,12 @@
         layout="vertical"
         :colon="false"
     >
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4">
-            <a-form-model-item label="Tên" prop="fullName">
-                <a-input v-model="form.fullName" placeholder="Tên" />
+        <div class="grid grid-cols-2 gap-x-4 gap-y-2">
+            <a-form-model-item class="col-span-2" label="Tiêu đề" prop="name">
+                <a-input v-model="form.name" placeholder="Tiêu đề" />
             </a-form-model-item>
-            <a-form-model-item label="Username" prop="userName">
-                <a-input v-model="form.userName" placeholder="Tên" />
-            </a-form-model-item>
-            <a-form-model-item label="Password" prop="password">
-                <a-input-password v-model="form.password" placeholder="Password" />
-            </a-form-model-item>
-            <a-form-model-item label="Số điện thoại" prop="phone">
-                <a-input v-model="form.phone" placeholder="Số điện thoại" />
-            </a-form-model-item>
-            <a-form-model-item label="Email" prop="email">
-                <a-input v-model="form.email" placeholder="Email" />
-            </a-form-model-item>
-            <a-form-model-item label="Group" prop="groups">
-                <SelectRemote
-                    v-model="form.groups"
-                    mode="multiple"
-                    fetch-url="selections/fetchGroups"
-                    option-label="description"
-                    option-value="id"
-                    store="selections"
-                    store-prop="groups"
-                    placeholder="Group"
-                />
+            <a-form-model-item class="col-span-2" label="File" prop="source">
+                <ct-file-upload v-model="form.source" @change="(source, fileAttributes) => handleFileChange(fileAttributes)" />
             </a-form-model-item>
         </div>
     </a-form-model>
@@ -40,59 +19,51 @@
 
 <script>
     import _cloneDeep from 'lodash/cloneDeep';
-    import _map from 'lodash/map';
-    import { passwordValidtor, phoneValidator, usernameValidator } from '@/utils/form';
-    import SelectRemote from '@/components/filters/SelectRemote.vue';
+    import _pick from 'lodash/pick';
 
     const defaultForm = {
-        userName: '',
-        password: '',
-        fullName: '',
-        phone: '',
-        email: '',
-        groups: [],
+        name: '',
+        type: undefined,
+        fileType: undefined,
+        fileName: undefined,
+        source: undefined,
     };
 
     export default {
-        components: {
-            SelectRemote,
-        },
-
         props: {
             user: Object,
+            type: {
+                type: String,
+                required: true,
+            },
         },
 
         data() {
             return {
                 form: this.user
-                    ? _cloneDeep({ ...this.user, password: '', groups: _map(this.user.groups, 'id') })
-                    : _cloneDeep(defaultForm),
+                    ? _cloneDeep(_pick(this.user, Object.keys(defaultForm)))
+                    : _cloneDeep({
+                        ...defaultForm,
+                        type: this.type,
+                    }),
                 rules: {
-                    fullName: [
-                        { required: true, message: 'Vui lòng nhập tên', trigger: 'change' },
+                    title: [
+                        { required: true, message: 'Vui lòng nhập tiêu đề', trigger: 'blur' },
                     ],
-                    userName: [
-                        { required: true, message: 'Vui lòng nhập tên tài khoản', trigger: 'blur' },
-                        { validator: usernameValidator, trigger: 'blur' },
-                    ],
-                    password: [
-                        ...[!this.user ? { required: true, message: 'Vui lòng nhập mật khẩu', trigger: 'change' } : {}],
-                        { validator: passwordValidtor, trigger: 'blur' },
-                    ],
-                    groups: [
-                        { required: true, message: 'Vui lòng chọn group', trigger: 'blur' },
-                    ],
-                    phone: [
-                        { validator: phoneValidator, trigger: 'blur' },
-                    ],
-                    email: [
-                        { type: 'email', message: 'Vui lòng nhập đúng định dạng email', trigger: 'blur' },
+                    source: [
+                        { required: true, message: 'Vui lòng tải file lên', trigger: 'change' },
                     ],
                 },
             };
         },
 
         methods: {
+            handleFileChange(fileAttributes) {
+                this.form.fileType = fileAttributes.type;
+                this.form.fileName = fileAttributes.originalname;
+                this.form.source = fileAttributes.source;
+            },
+
             submit() {
                 this.$refs.form.validate((valid) => {
                     if (valid) {
