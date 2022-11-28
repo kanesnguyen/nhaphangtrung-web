@@ -16,11 +16,11 @@
                 <div class="flex-1 pt-3 mb-auto">
                     <a-collapse>
                         <a-collapse-panel
-                            :key="items.id"
-                            :header="items.name"
+                            :key="items._id"
+                            :header="items.label"
                             :disabled="false"
                         >
-                            <template v-if="items.children.length > 0">
+                            <template v-if="items.children?.length > 0">
                                 <div v-for="item in items.children" :key="item.id" class="flex justify-between items-center w-full mb-3 pl-3 sm:pl-20">
                                     <span class="text-lg font-medium">{{ item.name }}</span>
                                     <a-popover placement="bottomRight" class="z-0">
@@ -116,6 +116,12 @@
 
         computed: {
             ...mapState('posts/categories', ['categories']),
+        },
+        mounted() {
+            this.$store.commit('breadcrumbs/SET_BREADCRUMBS', [{
+                label: 'Danh mục bài viết',
+                link: '/categories',
+            }]);
         },
 
         methods: {

@@ -2,14 +2,14 @@
     <div>
         <div class="card mt-4">
             <div class="flex justify-between items-center">
-                <ct-page-header show-back :text="`Chỉnh sửa ${product.name}`" />
+                <ct-page-header show-back :text="`Chỉnh sửa bài viết`" />
                 <div class="flex gap-x-5">
                     <nuxt-link to="/posts">
                         <a-button>
                             Hủy bỏ
                         </a-button>
                     </nuxt-link>
-                    <a-button type="primary" @click="$refs.ProductForm.submit()">
+                    <a-button type="primary" @click="$refs.PostForm.submit()">
                         Cập nhật
                     </a-button>
                 </div>
@@ -17,10 +17,10 @@
         </div>
 
         <div class="card mt-4">
-            <ProductForm
-                ref="ProductForm"
-                :is-edit="true"
-                :product="product"
+            <PostForm
+                ref="PostForm"
+                :isEdit="false"
+                :post="post"
                 @submit="submitForm"
             />
         </div>
@@ -29,15 +29,11 @@
 
 <script>
     import { mapState } from 'vuex';
-    import ProductForm from '@/components/posts/Form.vue';
+    import PostForm from '@/components/posts/Form.vue';
 
     export default {
         components: {
-            ProductForm,
-        },
-
-        async fetch() {
-            await this.fetchData();
+            PostForm,
         },
 
         async asyncData({ store, params }) {
@@ -51,7 +47,7 @@
         },
 
         computed: {
-            ...mapState('posts', ['product']),
+            ...mapState('posts', ['post']),
         },
 
         watch: {
@@ -64,27 +60,18 @@
 
         mounted() {
             this.$store.commit('breadcrumbs/SET_BREADCRUMBS', [{
-                label: 'Bài viết',
+                label: 'Chỉnh sửa bài viết',
                 link: '/posts',
             }]);
         },
 
         methods: {
-            async fetchData() {
-                try {
-                    this.loading = true;
-                    await this.$store.dispatch('posts/fetchDetail', this.$route.params);
-                } catch (error) {
-                    this.$handleError(error);
-                } finally {
-                    this.loading = false;
-                }
-            },
 
             async submitForm(payload) {
                 try {
                     this.loading = true;
-                    await this.$api.posts.update(this.product.id, payload);
+                    await this.$api.posts.update(this.post.slug, payload);
+                    this.$message.success('Cập nhật bài viết thành công');
                     this.$nuxt.refresh();
                 } catch (e) {
                     this.$message.error('Cập nhật bài viết thất bại');

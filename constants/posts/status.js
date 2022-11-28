@@ -1,6 +1,6 @@
 export const STATUS = {
-    ACTIVE: 'true',
-    INACTIVE: 'false',
+    ACTIVE: 'active',
+    INACTIVE: 'inactive',
 };
 
 export const STATUS_OPTIONS = [{

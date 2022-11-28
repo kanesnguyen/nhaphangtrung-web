@@ -32,10 +32,6 @@
             ProductForm,
         },
 
-        async fetch() {
-            await this.fetchData();
-        },
-
         async asyncData({ store, params }) {
             await store.dispatch('posts/fetchDetail', params);
         },
@@ -66,16 +62,6 @@
         },
 
         methods: {
-            async fetchData() {
-                try {
-                    this.loading = true;
-                    await this.$store.dispatch('posts/fetchDetail', this.$route.params);
-                } catch (error) {
-                    this.$handleError(error);
-                } finally {
-                    this.loading = false;
-                }
-            },
         },
 
         head() {

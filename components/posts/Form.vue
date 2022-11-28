@@ -6,7 +6,7 @@
             :rules="rules"
         >
             <div class="grid grid-cols-10 gap-4 pt-4">
-                <div :class="`col-span-12 md:col-span-7 p-3 rounded-md 'bg-white'`">
+                <div class="col-span-12 xl:col-span-7 p-3 rounded-md bg-white">
                     <p>
                         1. Thông tin cơ bản
                     </p>
@@ -29,9 +29,9 @@
                             :disabled="isEdit"
                         />
                     </a-form-model-item>
-                    <Editor @getContent="getContent" :contentProps="form.content" :isEdit="isEdit" />
+                    <Editor :content-props="form.content" :is-edit="isEdit" @getContent="getContent" />
                 </div>
-                <div :class="`col-span-12 md:col-span-3`">
+                <div :class="`col-span-12 xl:col-span-3`">
                     <div class="bg-white p-3 mb-3  rounded-md">
                         <p>
                             2. Hình ảnh đại diện
@@ -52,8 +52,8 @@
                                 class="!hidden"
                                 type="file"
                                 accept="image/jpeg, image/png"
-                                @change="previewThumbnail"
                                 :disabled="isEdit"
+                                @change="previewThumbnail"
                             >
                             <div class="flex gap-x-2">
                                 <div v-if="!isEdit" class="flex items-center w-fit px-2 py-1 rounded-lg border cursor-pointer border-[#3aa554] hover:bg-[#3aa554] hover:text-[#fff] transition duration-150 ease-out hover:ease-in border-[#d3d3d3]" @click="openSelectFile">
@@ -68,10 +68,10 @@
                         </p>
                         <div class="flex flex-col items-center gap-y-8 mb-6 w-full">
                             <a-select
+                                :v-model="JSON.stringify(form.category)"
                                 placeholder="Danh mục"
                                 class="w-full"
                                 @change="selectCategory"
-                                :value="JSON.stringify(post.category.items)"
                             >
                                 <a-select-option v-for="item in categories" :key="item.id" :value="JSON.stringify(item)">
                                     {{ item.label }}
@@ -163,15 +163,13 @@
                 this.form.content = content;
             },
             async submit() {
-                const upPost = await this.create({ ...this.form, thumbnail: this.fileName });
-                const upImage = await this.handlerThumbnail();
-                if (upPost && upImage) {
-                    this.$message.success('Gửi bài viết thành công!');
-                    this.form = _cloneDeep(form);
-                    this.fileName = '';
-                    this.thumbnail = '';
-                }
-                URL.revokeObjectURL(this.thumbnail);
+                this.$refs.form.validate((valid) => {
+                    if (valid) {
+                        this.$emit('submit', this.form);
+                    } else {
+                        this.$message.error('Cần nhập đủ trường!');
+                    }
+                });
             },
         },
     };

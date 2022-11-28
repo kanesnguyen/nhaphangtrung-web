@@ -98,9 +98,6 @@
                                     Chỉnh sửa
                                 </nuxt-link>
                             </a-menu-item>
-                            <a-menu-item class="capitalize" @click="changeStatus(scope)">
-                                {{ scope.status === USER_STATUS.ACTIVE ? 'Ngưng hoạt động' : 'Cho phép hoạt động' }}
-                            </a-menu-item>
                             <a-menu-item class="!text-danger-100" @click="() => { $refs.confirmDelete.open(), userSelected = scope }">
                                 Xóa
                             </a-menu-item>
@@ -171,20 +168,6 @@
                 } catch (e) {
                     this.$handleError(e);
                     this.$message.error('Xóa bài viết thất bại');
-                }
-            },
-            async changeStatus(user) {
-                try {
-                    if (user.status === USER_STATUS.ACTIVE) {
-                        await this.$api.posts.inActive(user.id);
-                    } else {
-                        await this.$api.posts.active(user.id);
-                    }
-                    this.$message.success('Thay đổi trạng thái thành công');
-                    this.$nuxt.refresh();
-                } catch (e) {
-                    this.$handleError(e);
-                    this.$message.error('Thay đổi trạng thái thất bại');
                 }
             },
         },

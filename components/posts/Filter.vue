@@ -9,13 +9,13 @@
         <SelectRemoteFilter
             class="col-span-4 md:col-span-4"
             placeholder="Danh mục"
-            query="categoryIds"
+            query="category"
             router
             label="Danh mục"
-            option-label="label"
-            option-value="value"
+            optionLabel="label"
+            optionValue="value"
             store="posts.categories"
-            store-prop="categories"
+            storeProp="categories"
         />
         <SelectFilter
             class="col-span-4 md:col-span-4"

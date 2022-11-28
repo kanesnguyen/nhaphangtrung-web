@@ -86,12 +86,9 @@
                                 </nuxt-link>
                             </a-menu-item>
                             <a-menu-item>
-                                <nuxt-link :to="`/posts/${scope._id}/edit`">
+                                <nuxt-link :to="`/posts/${scope.slug}/edit`">
                                     Chỉnh sửa
                                 </nuxt-link>
-                            </a-menu-item>
-                            <a-menu-item class="capitalize" @click="changeStatus(scope)">
-                                {{ scope.status === STATUS.ACTIVE ? 'Ngưng hoạt động' : 'Cho phép hoạt động' }}
                             </a-menu-item>
                             <a-menu-item class="!text-danger-100" @click="() => { $refs.confirmDelete.open(), postSelected = scope }">
                                 Xóa
@@ -166,20 +163,6 @@
                 } catch (e) {
                     this.$handleError(e);
                     this.$message.error('Xóa bài viết thất bại');
-                }
-            },
-            async changeStatus(post) {
-                try {
-                    if (post.status === STATUS.ACTIVE) {
-                        await this.$api.posts.inActive(post.id);
-                    } else {
-                        await this.$api.posts.active(post.id);
-                    }
-                    this.$message.success('Thay đổi trạng thái thành công');
-                    this.$nuxt.refresh();
-                } catch (e) {
-                    this.$handleError(e);
-                    this.$message.error('Thay đổi trạng thái thất bại');
                 }
             },
         },

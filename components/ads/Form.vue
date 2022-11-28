@@ -162,6 +162,6 @@
 .ant-upload, .ant-form-item-control {
     textarea {
         @apply h-72 w-full #{!important};
-    }
-}
+    };
+};
 </style>

@@ -27,6 +27,7 @@ let store = {};
   resolveStoreModules(require('..\\store\\users.js'), 'users.js')
   resolveStoreModules(require('..\\store\\posts\\index.js'), 'posts/index.js')
   resolveStoreModules(require('..\\store\\posts\\categories.js'), 'posts/categories.js')
+  resolveStoreModules(require('..\\store\\posts\\confirm.js'), 'posts/confirm.js')
 
   // If the environment supports hot reloading...
 
@@ -42,6 +43,7 @@ let store = {};
       '..\\store\\users.js',
       '..\\store\\posts\\index.js',
       '..\\store\\posts\\categories.js',
+      '..\\store\\posts\\confirm.js',
     ], () => {
       // Update `root.modules` with the latest definitions.
       updateModules()
