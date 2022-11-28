@@ -15,6 +15,7 @@ const _d322c47c = () => interopDefault(import('..\\pages\\posts\\confirm\\index.
 const _6634d0e6 = () => interopDefault(import('..\\pages\\services\\create.vue' /* webpackChunkName: "pages/services/create" */))
 const _7d37cef0 = () => interopDefault(import('..\\pages\\users\\author.vue' /* webpackChunkName: "pages/users/author" */))
 const _04377518 = () => interopDefault(import('..\\pages\\users\\manager.vue' /* webpackChunkName: "pages/users/manager" */))
+const _05a5aeac = () => interopDefault(import('..\\pages\\posts\\confirm\\_id.vue' /* webpackChunkName: "pages/posts/confirm/_id" */))
 const _df295186 = () => interopDefault(import('..\\pages\\ads\\_id.vue' /* webpackChunkName: "pages/ads/_id" */))
 const _7bb0e78f = () => interopDefault(import('..\\pages\\libraries\\_type\\index.vue' /* webpackChunkName: "pages/libraries/_type/index" */))
 const _81ac42f0 = () => interopDefault(import('..\\pages\\posts\\_id\\index.vue' /* webpackChunkName: "pages/posts/_id/index" */))
@@ -77,6 +78,10 @@ export const routerOptions = {
     path: "/users/manager",
     component: _04377518,
     name: "users-manager"
+  }, {
+    path: "/posts/confirm/:id",
+    component: _05a5aeac,
+    name: "posts-confirm-id"
   }, {
     path: "/ads/:id",
     component: _df295186,

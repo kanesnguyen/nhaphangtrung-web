@@ -77,6 +77,13 @@
     "_name": "_04377518"
   },
   {
+    "name": "posts-confirm-id",
+    "path": "/posts/confirm/:id",
+    "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\posts\\\\confirm\\\\_id.vue",
+    "chunkName": "pages/posts/confirm/_id",
+    "_name": "_05a5aeac"
+  },
+  {
     "name": "ads-id",
     "path": "/ads/:id",
     "component": "D:\\\\Project\\\\Journal\\\\journal-cms\\\\pages\\\\ads\\\\_id.vue",

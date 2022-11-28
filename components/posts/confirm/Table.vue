@@ -78,18 +78,18 @@
                         </a-button>
                         <a-menu slot="overlay">
                             <a-menu-item>
-                                <nuxt-link :to="`/posts/${scope.slug}`">
+                                <nuxt-link :to="`/posts/confirm/${scope.slug}`">
                                     Xem chi tiết
                                 </nuxt-link>
                             </a-menu-item>
-                            <a-menu-item>
+                            <!-- <a-menu-item>
                                 <p @click="() => { $refs.confirmPass.open(), postSelected = scope }">
                                     Chấp nhận
                                 </p>
                             </a-menu-item>
-                            <a-menu-item class="!text-danger-100" @click="() => { $refs.confirmDelete.open(), postSelected = scope }">
+                            <a-menu-item class="!text-danger-100" @click="() => { $refs.confirmReject.open(), postSelected = scope }">
                                 Xóa
-                            </a-menu-item>
+                            </a-menu-item> -->
                         </a-menu>
                     </a-dropdown>
                 </template>
@@ -97,10 +97,10 @@
         </a-table>
         <Pagination :data="pagination" />
         <ConfirmDialog
-            ref="confirmDelete"
-            title="Xác nhận xóa bài viết"
-            content="Bạn chắc chắn xóa bài viết này chứ ?"
-            @confirm="confirmDelete"
+            ref="confirmReject"
+            title="Không phê duyệt bài viết"
+            content="Bạn chắc chắn không phê duyệt bài viết ?"
+            @confirm="confirmReject"
         />
         <ConfirmDialog
             ref="confirmPass"
@@ -158,14 +158,13 @@
 
         methods: {
             mapDataFromOptions,
-            async confirmDelete() {
+            async confirmReject() {
                 try {
                     await this.$api.postConfirms.reject(this.postSelected._id);
                     this.$message.success('Thao tác bài viết thành công');
                     this.$nuxt.refresh();
                 } catch (e) {
                     this.$handleError(e);
-                    this.$message.error('Thao tác bài viết thất bại');
                 }
             },
             async confirmPass() {
@@ -175,7 +174,6 @@
                     this.$nuxt.refresh();
                 } catch (e) {
                     this.$handleError(e);
-                    this.$message.error('Xóa bài viết thất bại');
                 }
             },
         },
