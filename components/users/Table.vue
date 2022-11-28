@@ -163,11 +163,11 @@
             async confirmDelete() {
                 try {
                     await this.$api.posts.delete(this.userSelected.id);
-                    this.$message.success('Xóa bài viết thành công');
+                    this.$message.success('Thao tác thành công');
                     this.$nuxt.refresh();
                 } catch (e) {
                     this.$handleError(e);
-                    this.$message.error('Xóa bài viết thất bại');
+                    this.$message.error('Thao tác thất bại');
                 }
             },
         },

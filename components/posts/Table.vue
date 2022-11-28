@@ -157,7 +157,7 @@
             mapDataFromOptions,
             async confirmDelete() {
                 try {
-                    await this.$api.posts.delete(this.postSelected.id);
+                    await this.$api.posts.delete(this.postSelected.slug);
                     this.$message.success('Xóa bài viết thành công');
                     this.$nuxt.refresh();
                 } catch (e) {

@@ -160,8 +160,8 @@
             mapDataFromOptions,
             async confirmReject() {
                 try {
-                    await this.$api.postConfirms.reject(this.postSelected._id);
-                    this.$message.success('Thao tác bài viết thành công');
+                    await this.$api.postConfirms.reject(this.postSelected.slug);
+                    this.$message.success('Thao tác thành công');
                     this.$nuxt.refresh();
                 } catch (e) {
                     this.$handleError(e);
@@ -169,7 +169,7 @@
             },
             async confirmPass() {
                 try {
-                    await this.$api.postConfirms.confirm(this.postSelected._id);
+                    await this.$api.postConfirms.confirm(this.postSelected.slug);
                     this.$message.success('Xóa bài viết thành công');
                     this.$nuxt.refresh();
                 } catch (e) {
