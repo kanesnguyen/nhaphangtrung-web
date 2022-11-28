@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="card mt-4">
-            <ProductForm :is-edit="false" :product="product" />
+            <ProductForm :isEdit="true" :post="post" />
         </div>
     </div>
 </template>
@@ -47,7 +47,7 @@
         },
 
         computed: {
-            ...mapState('posts', ['product']),
+            ...mapState('posts', ['post']),
         },
 
         watch: {

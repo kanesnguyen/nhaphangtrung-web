@@ -6,7 +6,7 @@
             :rules="rules"
         >
             <div class="grid grid-cols-10 gap-4 pt-4">
-                <div :class="`col-span-7 p-3 rounded-md 'bg-white'`">
+                <div :class="`col-span-12 md:col-span-7 p-3 rounded-md 'bg-white'`">
                     <p>
                         1. Thông tin cơ bản
                     </p>
@@ -18,21 +18,22 @@
                         <a-input
                             v-model="form.title"
                             placeholder="Nhập tiêu đề bài viết"
+                            :disabled="isEdit"
                         />
                     </a-form-model-item>
                     <a-form-model-item has-feedback label="Mô tả ngắn" prop="description">
                         <a-textarea
                             v-model="form.description"
-                            :class="`${theme ? 'text-black' : 'dark-theme'}`"
                             placeholder="Mô tả ngắn cho bài viết"
                             :auto-size="{ minRows: 2, maxRows: 3 }"
+                            :disabled="isEdit"
                         />
                     </a-form-model-item>
-                    <Editor @getContent="getContent" />
+                    <Editor @getContent="getContent" :contentProps="form.content" :isEdit="isEdit" />
                 </div>
-                <div :class="`col-span-3`">
-                    <div :class="`${theme ? 'bg-white' : 'bg-[#242526]'}  p-3 mb-3  rounded-md`">
-                        <p :class="`${theme ? 'text-black' : 'text-[#fff]'}`">
+                <div :class="`col-span-12 md:col-span-3`">
+                    <div class="bg-white p-3 mb-3  rounded-md">
+                        <p>
                             2. Hình ảnh đại diện
                         </p>
                         <div class="flex flex-col items-center gap-y-8 mb-6 w-full">
@@ -52,36 +53,32 @@
                                 type="file"
                                 accept="image/jpeg, image/png"
                                 @change="previewThumbnail"
+                                :disabled="isEdit"
                             >
                             <div class="flex gap-x-2">
-                                <div :class="`flex items-center w-fit px-2 py-1 rounded-lg border cursor-pointer border-[#3aa554] hover:bg-[#3aa554] hover:text-[#fff] transition duration-150 ease-out hover:ease-in 'border-[#d3d3d3]' : 'border-[#3a3b3c]' }`" @click="openSelectFile">
-                                    <p :class="`mb-0 px-3 text-sm 'text-black' : 'text-[#fff]'}`">
+                                <div v-if="!isEdit" class="flex items-center w-fit px-2 py-1 rounded-lg border cursor-pointer border-[#3aa554] hover:bg-[#3aa554] hover:text-[#fff] transition duration-150 ease-out hover:ease-in border-[#d3d3d3]" @click="openSelectFile">
+                                    <p class="mb-0 px-3 text-sm text-black">
                                         {{ fileName ? 'Thay đổi' : 'Upload' }}
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <p :class="`${theme ? 'text-black' : 'text-[#fff]'}`">
+                        <p class="text-black">
                             3. Danh mục bài viết
                         </p>
-                        <div :class="`flex flex-col items-center gap-y-8 mb-6 w-full 'light-mode' : 'dark-mode'}`">
+                        <div class="flex flex-col items-center gap-y-8 mb-6 w-full">
                             <a-select
                                 placeholder="Danh mục"
                                 class="w-full"
                                 @change="selectCategory"
+                                :value="JSON.stringify(post.category.items)"
                             >
-                                <a-select-option v-for="item in topics" :key="item.id" :value="JSON.stringify(item)">
+                                <a-select-option v-for="item in categories" :key="item.id" :value="JSON.stringify(item)">
                                     {{ item.label }}
                                 </a-select-option>
                             </a-select>
                         </div>
                     </div>
-
-                    <button :class="`w-full ${!theme ? 'bg-[#3aa554] !text-white font-semibold' : 'bg-[#3aa554] !text-[#f5f5f5] border-[#242526]'} flex items-center justify-center px-3 py-2 rounded-md border cursor-pointer hover:border-[#3aa554] transition duration-150 ease-out hover:ease-in`" @click="submit">
-                        <p :class="`mb-0  text-sm text-center`">
-                            Gửi bài viết
-                        </p>
-                    </button>
                 </div>
             </div>
         </a-form-model>
@@ -89,6 +86,7 @@
 </template>
 
 <script>
+    import { mapState } from 'vuex';
     import _cloneDeep from 'lodash/cloneDeep';
     import Editor from '@/components/shared/Editor.vue';
 
@@ -103,24 +101,35 @@
         components: {
             Editor,
         },
+        props: {
+            post: {
+                type: Object,
+                default: () => {},
+            },
+            isEdit: {
+                type: Boolean,
+                default: false,
+            },
+        },
         data() {
             return {
-                thumbnail: null,
+                thumbnail: this.post ? this.post.thumbnail : null,
                 fileName: null,
                 submited: false,
-                form: _cloneDeep(form),
+                form: this.post ? _cloneDeep(this.post) : _cloneDeep(form),
                 rules: {
                     title: [
                         { required: true, message: 'Vui lòng nhập Tiêu đề', trigger: 'blur' },
                     ],
-                    description: [
-                        { required: true, message: 'Vui lòng nhập Mô tả cho bài viết', trigger: 'blur' },
+                    content: [
+                        { required: true, message: 'Vui lòng nhập Nội dung bài viết', trigger: 'blur' },
                     ],
                 },
             };
         },
 
         computed: {
+            ...mapState('posts/categories', ['categories']),
         },
         methods: {
             openSelectFile() {
