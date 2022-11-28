@@ -56,7 +56,7 @@ export default function (ctx, inject) {
   },
   "endpoints": {
     "login": {
-      "url": "http://localhost:3000/api/a/sessions/login",
+      "url": "http://localhost:3000/api/a/session/login",
       "method": "POST"
     },
     "logout": false,

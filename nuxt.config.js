@@ -113,7 +113,7 @@ export default {
                 },
                 endpoints: {
                     login: {
-                        url: `${process.env.API_HOST}/a/sessions/login`,
+                        url: `${process.env.API_HOST}/a/session/login`,
                         method: 'POST',
                     },
                     logout: false,
