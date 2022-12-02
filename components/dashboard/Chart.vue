@@ -35,7 +35,7 @@
 </template>
 
 <script>
-    import Doughnut from '@/components/shared/Chart';
+    import Doughnut from '@/components/shared/DonutChart';
 
     export default {
         components: {

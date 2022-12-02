@@ -1,5 +1,13 @@
 <template>
     <div>
+        <div class="grid grid-cols-10 gap-4">
+            <div class="col-span-7">
+                <LineChart />
+            </div>
+            <div class="col-span-3 pb-4">
+                <UserNew />
+            </div>
+        </div>
         <div class="grid grid-cols-1 sm:grid-cols-12 gap-5 items-start">
             <div class="sm:col-span-6 sm:grid-cols-1 lg:col-span-8 xl:col-span-12 xl:grid-cols-4 grid items-center gap-5">
                 <a-spin v-for="item in items" :key="item.title" :spinning="loading">
@@ -14,7 +22,6 @@
                     </div>
                 </a-spin>
             </div>
-
             <div class="sm:col-span-12 grid grid-cols-12 items-stretch gap-5 xl:col-span-12 ">
                 <DashboardChart
                     title="Thống kê truy cập"
@@ -37,11 +44,16 @@
 </template>
 
 <script>
+    import moment from 'moment';
     import DashboardChart from '@/components/dashboard/Chart.vue';
+    import LineChart from '@/components/dashboard/LineChart.vue';
+    import UserNew from '@/components/dashboard/UserNew.vue';
 
     export default {
         components: {
             DashboardChart,
+            LineChart,
+            UserNew,
         },
 
         async fetch() {
@@ -96,6 +108,7 @@
         },
 
         methods: {
+            moment,
             async fetchData() {
                 try {
                     this.loading = true;
