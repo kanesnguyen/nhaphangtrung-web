@@ -6,7 +6,7 @@
                 <img src="/images/logo-white.svg" width="50">
             </nuxt-link> -->
             <div v-show="!collapsed" class="text-white font-semibold text-3xl">
-                Journal CMS
+                Minh Long CMS
             </div>
         </div>
         <a-menu

@@ -1,6 +1,6 @@
 <template>
     <div class="flex justify-between items-center bg-white border-t border-gray-20 py-2 px-4 md:px-8 text-xs md:text-base">
-        <div>&copy; {{ currentYear }} - <a href="#" class="text-prim-100 hover:underline">Journal Company</a></div>
+        <div>&copy; {{ currentYear }} - <a href="#" class="text-prim-100 hover:underline">Minh Long Company</a></div>
     </div>
 </template>
 

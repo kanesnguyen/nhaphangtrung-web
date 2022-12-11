@@ -1,24 +1,13 @@
 <template>
-    <div class="grid grid-cols-12 gap-4">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <SearchFilter
-            class="col-span-4 md:col-span-4"
+            class="col-span-2"
             label="Tìm kiếm"
             placeholder="Tìm kiếm theo tên, nội dung..."
             query="searchKey"
         />
-        <SelectRemoteFilter
-            class="col-span-4 md:col-span-4"
-            placeholder="Danh mục"
-            query="category"
-            router
-            label="Danh mục"
-            optionLabel="label"
-            optionValue="value"
-            store="posts.categories"
-            storeProp="categories"
-        />
         <SelectFilter
-            class="col-span-4 md:col-span-4"
+            class="col-span-2"
             label="Trạng thái"
             placeholder="Trạng thái"
             query="status"
@@ -30,14 +19,12 @@
 <script>
     import { STATUS_OPTIONS } from '@/constants/posts/status';
     import SearchFilter from '@/components/filters/Search.vue';
-    import SelectRemoteFilter from '@/components/filters/SelectRemote.vue';
     import SelectFilter from '@/components/filters/Select.vue';
 
     export default {
         components: {
             SearchFilter,
             SelectFilter,
-            SelectRemoteFilter,
         },
 
         data() {

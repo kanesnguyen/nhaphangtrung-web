@@ -1,57 +1,44 @@
 <template>
     <div>
+        <PostFilter class="card" />
         <div class="card mt-4">
             <div class="flex justify-between items-center">
-                <ct-page-header text="Chi tiết bài viết" />
-                <div class="flex gap-x-5">
-                    <nuxt-link to="/posts">
-                        <a-button>
-                            Quay lại
-                        </a-button>
-                    </nuxt-link>
-                    <nuxt-link :to="`/posts/${$route.params.slug}/edit`">
-                        <a-button type="primary">
-                            Chỉnh sửa
-                        </a-button>
-                    </nuxt-link>
-                </div>
+                <ct-page-header text="Danh sách bài viết" />
+                <nuxt-link to="/posts/create">
+                    <a-button type="primary">
+                        <i class="fas fa-plus mr-2" /> Thêm mới
+                    </a-button>
+                </nuxt-link>
             </div>
-        </div>
-        <div class="card mt-4">
-            <ProductForm :isEdit="true" :post="post" />
+            <PostTable
+                class="mt-4"
+                :posts="posts"
+                :loading="loading"
+                :pagination="pagination"
+            />
         </div>
     </div>
 </template>
 
 <script>
-    import { mapState } from 'vuex';
-    import ProductForm from '@/components/posts/Form.vue';
+    import PostFilter from '@/components/posts/Filter.vue';
+    import PostTable from '@/components/posts/Table.vue';
 
     export default {
         components: {
-            ProductForm,
-        },
-
-        async asyncData({ store, params }) {
-            await store.dispatch('posts/fetchDetail', params);
+            PostFilter,
+            PostTable,
         },
 
         data() {
             return {
-                loading: false,
             };
         },
 
         computed: {
-            ...mapState('posts', ['post']),
         },
 
         watch: {
-            '$route.query': {
-                handler() {
-                    this.fetchData();
-                },
-            },
         },
 
         mounted() {
@@ -66,7 +53,7 @@
 
         head() {
             return {
-                title: 'Xem chi tiết bài viết',
+                title: 'Danh sách bài viết',
             };
         },
     };

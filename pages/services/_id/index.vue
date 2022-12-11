@@ -94,7 +94,7 @@
         },
         head() {
             return {
-                title: 'Cập nhật dịch vụ | JOURNAL CMS',
+                title: 'Cập nhật dịch vụ | Minh Long CMS',
             };
         },
     };

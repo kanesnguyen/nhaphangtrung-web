@@ -19,7 +19,7 @@
                     <nuxt />
                 </div>
                 <div>
-                    &copy; {{ currentYear }} Journal Company
+                    &copy; {{ currentYear }} Minh Long Company
                 </div>
             </div>
         </div>

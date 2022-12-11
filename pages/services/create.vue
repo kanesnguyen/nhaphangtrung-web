@@ -64,7 +64,7 @@
         },
         head() {
             return {
-                title: 'Thêm mới dịch vụ | JOURNAL CMS',
+                title: 'Thêm mới dịch vụ | Minh Long CMS',
             };
         },
     };

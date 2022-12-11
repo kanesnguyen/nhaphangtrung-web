@@ -17,8 +17,8 @@ export default {
     },
 
     head: {
-        title: 'journal-cms',
-        titleTemplate: '%s | JOURNAL CMS',
+        title: 'Minh Long CMS',
+        titleTemplate: '%s | Minh Long CMS',
         htmlAttrs: {
             lang: 'en',
         },
@@ -96,45 +96,45 @@ export default {
         baseURL: process.env.API_HOST,
     },
 
-    auth: {
-        strategies: {
-            local: {
-                token: {
-                    property: 'data.accessToken',
-                    global: true,
-                    required: true,
-                    maxAge: 60 * 60 * 24 * 30,
-                    type: 'Bearer',
-                },
-                autoLogout: false,
-                user: {
-                    property: 'data.currentAdmin',
-                    autoFetch: true,
-                },
-                endpoints: {
-                    login: {
-                        url: `${process.env.API_HOST}/a/session/login`,
-                        method: 'POST',
-                    },
-                    logout: false,
-                    user: {
-                        url: `${process.env.API_HOST}/a/account`,
-                        method: 'GET',
-                    },
-                },
-                redirect: {
-                    login: '/login',
-                    logout: '/',
-                    // callback: '/login',
-                    home: '/',
-                },
-            },
-        },
-    },
+    // auth: {
+    //     strategies: {
+    //         local: {
+    //             token: {
+    //                 property: 'data.accessToken',
+    //                 global: true,
+    //                 required: true,
+    //                 maxAge: 60 * 60 * 24 * 30,
+    //                 type: 'Bearer',
+    //             },
+    //             autoLogout: false,
+    //             user: {
+    //                 property: 'data.currentAdmin',
+    //                 autoFetch: true,
+    //             },
+    //             endpoints: {
+    //                 login: {
+    //                     url: `${process.env.API_HOST}/a/session/login`,
+    //                     method: 'POST',
+    //                 },
+    //                 logout: false,
+    //                 user: {
+    //                     url: `${process.env.API_HOST}/a/account`,
+    //                     method: 'GET',
+    //                 },
+    //             },
+    //             redirect: {
+    //                 login: '/login',
+    //                 logout: '/',
+    //                 // callback: '/login',
+    //                 home: '/',
+    //             },
+    //         },
+    //     },
+    // },
 
-    router: {
-        middleware: ['auth'],
-    },
+    // router: {
+    //     middleware: ['auth'],
+    // },
 
     build: {
         transpile: [/^vue2-google-maps($|\/)/],

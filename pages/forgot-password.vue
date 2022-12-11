@@ -71,7 +71,7 @@
 
         head() {
             return {
-                title: 'Lấy lại mật khẩu | JOURNAL CMS',
+                title: 'Lấy lại mật khẩu | Minh Long CMS',
             };
         },
     };
