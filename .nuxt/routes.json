@@ -3,77 +3,66 @@
     "name": "feedbacks",
     "path": "/feedbacks",
     "component": "D:\\\\Project\\\\Freelance\\\\MinhLong\\\\cms\\\\pages\\\\feedbacks\\\\index.vue",
-    "chunkName": "pages/feedbacks/index",
-    "_name": "_a6e8fd6a"
+    "chunkName": "pages/feedbacks/index"
   },
   {
     "name": "forgot-password",
     "path": "/forgot-password",
     "component": "D:\\\\Project\\\\Freelance\\\\MinhLong\\\\cms\\\\pages\\\\forgot-password.vue",
-    "chunkName": "pages/forgot-password",
-    "_name": "_5387b8e4"
+    "chunkName": "pages/forgot-password"
   },
   {
     "name": "login",
     "path": "/login",
     "component": "D:\\\\Project\\\\Freelance\\\\MinhLong\\\\cms\\\\pages\\\\login.vue",
-    "chunkName": "pages/login",
-    "_name": "_05287832"
+    "chunkName": "pages/login"
   },
   {
     "name": "posts-confirm",
     "path": "/posts/confirm",
     "component": "D:\\\\Project\\\\Freelance\\\\MinhLong\\\\cms\\\\pages\\\\posts\\\\confirm\\\\index.vue",
-    "chunkName": "pages/posts/confirm/index",
-    "_name": "_a065cea4"
+    "chunkName": "pages/posts/confirm/index"
   },
   {
     "name": "posts-create",
     "path": "/posts/create",
     "component": "D:\\\\Project\\\\Freelance\\\\MinhLong\\\\cms\\\\pages\\\\posts\\\\create\\\\index.vue",
-    "chunkName": "pages/posts/create/index",
-    "_name": "_69dd412c"
+    "chunkName": "pages/posts/create/index"
   },
   {
     "name": "services-create",
     "path": "/services/create",
     "component": "D:\\\\Project\\\\Freelance\\\\MinhLong\\\\cms\\\\pages\\\\services\\\\create.vue",
-    "chunkName": "pages/services/create",
-    "_name": "_3408f921"
+    "chunkName": "pages/services/create"
   },
   {
     "name": "posts-confirm-id",
     "path": "/posts/confirm/:id",
     "component": "D:\\\\Project\\\\Freelance\\\\MinhLong\\\\cms\\\\pages\\\\posts\\\\confirm\\\\_id.vue",
-    "chunkName": "pages/posts/confirm/_id",
-    "_name": "_4b856e96"
+    "chunkName": "pages/posts/confirm/_id"
   },
   {
     "name": "posts-id",
     "path": "/posts/:id",
     "component": "D:\\\\Project\\\\Freelance\\\\MinhLong\\\\cms\\\\pages\\\\posts\\\\_id\\\\index.vue",
-    "chunkName": "pages/posts/_id/index",
-    "_name": "_3c72af74"
+    "chunkName": "pages/posts/_id/index"
   },
   {
     "name": "services-id",
     "path": "/services/:id",
     "component": "D:\\\\Project\\\\Freelance\\\\MinhLong\\\\cms\\\\pages\\\\services\\\\_id\\\\index.vue",
-    "chunkName": "pages/services/_id/index",
-    "_name": "_5c9911fd"
+    "chunkName": "pages/services/_id/index"
   },
   {
     "name": "posts-id-edit",
     "path": "/posts/:id?/edit",
     "component": "D:\\\\Project\\\\Freelance\\\\MinhLong\\\\cms\\\\pages\\\\posts\\\\_id\\\\edit.vue",
-    "chunkName": "pages/posts/_id/edit",
-    "_name": "_c6889550"
+    "chunkName": "pages/posts/_id/edit"
   },
   {
     "name": "index",
     "path": "/",
     "component": "D:\\\\Project\\\\Freelance\\\\MinhLong\\\\cms\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_3b80d51b"
+    "chunkName": "pages/index"
   }
 ]

@@ -19,7 +19,7 @@
                     <nuxt />
                 </div>
                 <div>
-                    &copy; {{ currentYear }} Minh Long Company
+                    &copy; {{ currentYear }} Minh Long Holding
                 </div>
             </div>
         </div>
