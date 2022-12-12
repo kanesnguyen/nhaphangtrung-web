@@ -33,7 +33,7 @@
 
         head() {
             return {
-                title: 'Tổng quát | Minh Long CMS',
+                title: 'Tổng quát | Nhập Hàng Trung CMS',
             };
         },
     };

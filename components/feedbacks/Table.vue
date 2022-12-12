@@ -19,9 +19,15 @@
             />
             <a-table-column
                 key="title"
-                title="Tiêu đề"
+                title="Mã shop"
                 :width="150"
                 data-index="title"
+            />
+            <a-table-column
+                key="indemnification"
+                title="Tiền bồi thường"
+                :width="150"
+                data-index="indemnification"
             />
             <a-table-column
                 key="description"
@@ -29,6 +35,17 @@
                 :width="300"
                 data-index="description"
             />
+            <a-table-column
+                key="status"
+                data-index="status"
+                title="Trạng thái"
+                align="center"
+                :width="150"
+            >
+                <template #default="status">
+                    {{ status }}
+                </template>
+            </a-table-column>
             <a-table-column
                 key="createdAt"
                 data-index="createdAt"

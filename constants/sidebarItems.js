@@ -1,32 +1,29 @@
 export default [{
-    route: '/',
-    label: 'Tổng quát',
+    route: '/cart',
+    label: 'Giỏ hàng',
     icon: 'fas fa-home',
 }, {
-    route: '/posts',
-    label: 'Lĩnh vực kinh doanh',
+    route: '/orders',
+    label: 'Đơn hàng',
     icon: 'fas fa-cube',
-    childs: [{
-        label: 'Tư vấn truyền thông',
-        route: '/posts/tu-van-truyen-thong',
-    }, {
-        label: 'Hệ thống phân phối',
-        route: '/posts/he-thong-phan-phoi',
-    }, {
-        label: 'Thực phẩm dinh dưỡng',
-        route: '/posts/thuc-pham-dinh-duong',
-    }, {
-        label: 'Thực phẩm chức năng',
-        route: '/posts/thuc-pham-chuc-nang',
-    }, {
-        label: 'Logictics',
-        route: '/posts/logictics',
-    }, {
-        label: 'Bất động sản',
-        route: '/posts/bat-dong-san',
-    }],
+}, {
+    route: '/recharge',
+    label: 'Nạp tiền',
+    icon: 'fas fa-money-bill',
+}, {
+    route: '/transactions',
+    label: 'Lịch sử giao dịch',
+    icon: 'fas fa-list-ul',
 }, {
     route: '/feedbacks',
-    label: 'Phản hồi',
+    label: 'Khiếu nại',
     icon: 'fas fa-comments',
+}, {
+    route: '/tracking',
+    label: 'Tracking',
+    icon: 'fas fa-barcode',
+}, {
+    route: '/print-bill',
+    label: 'In phiếu',
+    icon: 'fas fa-print',
 }];

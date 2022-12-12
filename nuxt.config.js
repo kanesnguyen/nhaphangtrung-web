@@ -17,8 +17,8 @@ export default {
     },
 
     head: {
-        title: 'Minh Long CMS',
-        titleTemplate: '%s | Minh Long CMS',
+        title: 'Nhập Hàng Trung CMS',
+        titleTemplate: '%s | Nhập Hàng Trung CMS',
         htmlAttrs: {
             lang: 'en',
         },

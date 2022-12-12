@@ -6,7 +6,7 @@
                 <img src="/images/logo-white.svg" width="50">
             </nuxt-link> -->
             <div v-show="!collapsed" class="text-white font-semibold text-3xl">
-                Minh Long CMS
+                <img src="/images/logo.png" alt="logo" class="w-[65%] d-block mx-auto pt-3">
             </div>
         </div>
         <a-menu

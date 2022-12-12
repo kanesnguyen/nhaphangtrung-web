@@ -11,7 +11,7 @@
         </div>
         <div class="flex items-center gap-6">
             <a href="tel:0963395763" class="font-semibold">
-                <i class="fas fa-phone-alt text-gray-100" /> <span class="hidden md:inline text-[#3aa554]">0963395763</span>
+                <i class="fas fa-phone-alt text-gray-100" /> <span class="hidden md:inline text-[#f6b900]">0963395763</span>
             </a>
             <div class="font-semibold">
                 <i class="fas fa-question-circle" /> <span class="hidden md:inline">Trợ giúp</span>
@@ -23,7 +23,7 @@
                 </a-avatar>
                 <a-dropdown :trigger="['click']">
                     <div class="cursor-pointer font-semibold">
-                        {{ authUser.fullName }}
+                        <!-- {{ authUser.fullName }} -->
                         <i class="fas fa-chevron-down" />
                     </div>
                     <template #overlay>

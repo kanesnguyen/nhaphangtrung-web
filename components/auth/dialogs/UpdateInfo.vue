@@ -51,7 +51,12 @@
                 visible: false,
                 loading: false,
                 room: null,
-                form: {},
+                form: {
+                    fullName: '',
+                    username: '',
+                    phoneNumber: '',
+                    email: '',
+                },
                 rules: {
                     fullName: [{
                         required: true, message: 'Vui lòng nhập họ tên', trigger: 'blur',

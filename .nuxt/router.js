@@ -4,17 +4,23 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _a6e8fd6a = () => interopDefault(import('..\\pages\\feedbacks\\index.vue' /* webpackChunkName: "pages/feedbacks/index" */))
-const _5387b8e4 = () => interopDefault(import('..\\pages\\forgot-password.vue' /* webpackChunkName: "pages/forgot-password" */))
-const _05287832 = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages/login" */))
-const _a065cea4 = () => interopDefault(import('..\\pages\\posts\\confirm\\index.vue' /* webpackChunkName: "pages/posts/confirm/index" */))
-const _69dd412c = () => interopDefault(import('..\\pages\\posts\\create\\index.vue' /* webpackChunkName: "pages/posts/create/index" */))
-const _3408f921 = () => interopDefault(import('..\\pages\\services\\create.vue' /* webpackChunkName: "pages/services/create" */))
-const _4b856e96 = () => interopDefault(import('..\\pages\\posts\\confirm\\_id.vue' /* webpackChunkName: "pages/posts/confirm/_id" */))
-const _3c72af74 = () => interopDefault(import('..\\pages\\posts\\_id\\index.vue' /* webpackChunkName: "pages/posts/_id/index" */))
-const _5c9911fd = () => interopDefault(import('..\\pages\\services\\_id\\index.vue' /* webpackChunkName: "pages/services/_id/index" */))
-const _c6889550 = () => interopDefault(import('..\\pages\\posts\\_id\\edit.vue' /* webpackChunkName: "pages/posts/_id/edit" */))
-const _3b80d51b = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _3afaabc8 = () => interopDefault(import('..\\pages\\cart\\index.vue' /* webpackChunkName: "pages/cart/index" */))
+const _715a6d8a = () => interopDefault(import('..\\pages\\feedbacks\\index.vue' /* webpackChunkName: "pages/feedbacks/index" */))
+const _78619922 = () => interopDefault(import('..\\pages\\forgot-password.vue' /* webpackChunkName: "pages/forgot-password" */))
+const _1992bd53 = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages/login" */))
+const _24b458b7 = () => interopDefault(import('..\\pages\\orders\\index.vue' /* webpackChunkName: "pages/orders/index" */))
+const _021a6e35 = () => interopDefault(import('..\\pages\\print-bill\\index.vue' /* webpackChunkName: "pages/print-bill/index" */))
+const _41678335 = () => interopDefault(import('..\\pages\\recharge\\index.vue' /* webpackChunkName: "pages/recharge/index" */))
+const _14938db6 = () => interopDefault(import('..\\pages\\tracking\\index.vue' /* webpackChunkName: "pages/tracking/index" */))
+const _36b8b272 = () => interopDefault(import('..\\pages\\transactions\\index.vue' /* webpackChunkName: "pages/transactions/index" */))
+const _421a0862 = () => interopDefault(import('..\\pages\\posts\\confirm\\index.vue' /* webpackChunkName: "pages/posts/confirm/index" */))
+const _7a021429 = () => interopDefault(import('..\\pages\\posts\\create\\index.vue' /* webpackChunkName: "pages/posts/create/index" */))
+const _0e503540 = () => interopDefault(import('..\\pages\\services\\create.vue' /* webpackChunkName: "pages/services/create" */))
+const _175ba5f7 = () => interopDefault(import('..\\pages\\posts\\confirm\\_id.vue' /* webpackChunkName: "pages/posts/confirm/_id" */))
+const _11814b15 = () => interopDefault(import('..\\pages\\posts\\_id\\index.vue' /* webpackChunkName: "pages/posts/_id/index" */))
+const _0b89c6bc = () => interopDefault(import('..\\pages\\services\\_id\\index.vue' /* webpackChunkName: "pages/services/_id/index" */))
+const _618aa197 = () => interopDefault(import('..\\pages\\posts\\_id\\edit.vue' /* webpackChunkName: "pages/posts/_id/edit" */))
+const _4feb1a3c = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -28,48 +34,72 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
+    path: "/cart",
+    component: _3afaabc8,
+    name: "cart"
+  }, {
     path: "/feedbacks",
-    component: _a6e8fd6a,
+    component: _715a6d8a,
     name: "feedbacks"
   }, {
     path: "/forgot-password",
-    component: _5387b8e4,
+    component: _78619922,
     name: "forgot-password"
   }, {
     path: "/login",
-    component: _05287832,
+    component: _1992bd53,
     name: "login"
   }, {
+    path: "/orders",
+    component: _24b458b7,
+    name: "orders"
+  }, {
+    path: "/print-bill",
+    component: _021a6e35,
+    name: "print-bill"
+  }, {
+    path: "/recharge",
+    component: _41678335,
+    name: "recharge"
+  }, {
+    path: "/tracking",
+    component: _14938db6,
+    name: "tracking"
+  }, {
+    path: "/transactions",
+    component: _36b8b272,
+    name: "transactions"
+  }, {
     path: "/posts/confirm",
-    component: _a065cea4,
+    component: _421a0862,
     name: "posts-confirm"
   }, {
     path: "/posts/create",
-    component: _69dd412c,
+    component: _7a021429,
     name: "posts-create"
   }, {
     path: "/services/create",
-    component: _3408f921,
+    component: _0e503540,
     name: "services-create"
   }, {
     path: "/posts/confirm/:id",
-    component: _4b856e96,
+    component: _175ba5f7,
     name: "posts-confirm-id"
   }, {
     path: "/posts/:id",
-    component: _3c72af74,
+    component: _11814b15,
     name: "posts-id"
   }, {
     path: "/services/:id",
-    component: _5c9911fd,
+    component: _0b89c6bc,
     name: "services-id"
   }, {
     path: "/posts/:id?/edit",
-    component: _c6889550,
+    component: _618aa197,
     name: "posts-id-edit"
   }, {
     path: "/",
-    component: _3b80d51b,
+    component: _4feb1a3c,
     name: "index"
   }],
 

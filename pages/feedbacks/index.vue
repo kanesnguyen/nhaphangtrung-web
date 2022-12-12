@@ -40,7 +40,7 @@
         },
         mounted() {
             this.$store.commit('breadcrumbs/SET_BREADCRUMBS', [{
-                label: 'Phản hồi',
+                label: 'Danh sách khiếu nại',
                 link: '/feedbacks',
             }]);
         },
@@ -62,7 +62,7 @@
 
         head() {
             return {
-                title: 'Phản hồi',
+                title: 'Danh sách khiếu nại',
             };
         },
     };

@@ -56,7 +56,7 @@
                                 @change="previewThumbnail"
                             >
                             <div class="flex gap-x-2">
-                                <div v-if="!isEdit" class="flex items-center w-fit px-2 py-1 rounded-lg border cursor-pointer border-[#3aa554] hover:bg-[#3aa554] hover:text-[#fff] transition duration-150 ease-out hover:ease-in border-[#d3d3d3]" @click="openSelectFile">
+                                <div v-if="!isEdit" class="flex items-center w-fit px-2 py-1 rounded-lg border cursor-pointer border-[#f6b900] hover:bg-[#f6b900] hover:text-[#fff] transition duration-150 ease-out hover:ease-in border-[#d3d3d3]" @click="openSelectFile">
                                     <p class="mb-0 px-3 text-sm text-black">
                                         {{ fileName ? 'Thay đổi' : 'Upload' }}
                                     </p>

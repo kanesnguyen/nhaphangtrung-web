@@ -1,68 +1,121 @@
 [
   {
+    "name": "cart",
+    "path": "/cart",
+    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\cart\\\\index.vue",
+    "chunkName": "pages/cart/index",
+    "_name": "_3afaabc8"
+  },
+  {
     "name": "feedbacks",
     "path": "/feedbacks",
-    "component": "D:\\\\Project\\\\Freelance\\\\MinhLong\\\\cms\\\\pages\\\\feedbacks\\\\index.vue",
-    "chunkName": "pages/feedbacks/index"
+    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\feedbacks\\\\index.vue",
+    "chunkName": "pages/feedbacks/index",
+    "_name": "_715a6d8a"
   },
   {
     "name": "forgot-password",
     "path": "/forgot-password",
-    "component": "D:\\\\Project\\\\Freelance\\\\MinhLong\\\\cms\\\\pages\\\\forgot-password.vue",
-    "chunkName": "pages/forgot-password"
+    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\forgot-password.vue",
+    "chunkName": "pages/forgot-password",
+    "_name": "_78619922"
   },
   {
     "name": "login",
     "path": "/login",
-    "component": "D:\\\\Project\\\\Freelance\\\\MinhLong\\\\cms\\\\pages\\\\login.vue",
-    "chunkName": "pages/login"
+    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\login.vue",
+    "chunkName": "pages/login",
+    "_name": "_1992bd53"
+  },
+  {
+    "name": "orders",
+    "path": "/orders",
+    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\orders\\\\index.vue",
+    "chunkName": "pages/orders/index",
+    "_name": "_24b458b7"
+  },
+  {
+    "name": "print-bill",
+    "path": "/print-bill",
+    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\print-bill\\\\index.vue",
+    "chunkName": "pages/print-bill/index",
+    "_name": "_021a6e35"
+  },
+  {
+    "name": "recharge",
+    "path": "/recharge",
+    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\recharge\\\\index.vue",
+    "chunkName": "pages/recharge/index",
+    "_name": "_41678335"
+  },
+  {
+    "name": "tracking",
+    "path": "/tracking",
+    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\tracking\\\\index.vue",
+    "chunkName": "pages/tracking/index",
+    "_name": "_14938db6"
+  },
+  {
+    "name": "transactions",
+    "path": "/transactions",
+    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\transactions\\\\index.vue",
+    "chunkName": "pages/transactions/index",
+    "_name": "_36b8b272"
   },
   {
     "name": "posts-confirm",
     "path": "/posts/confirm",
-    "component": "D:\\\\Project\\\\Freelance\\\\MinhLong\\\\cms\\\\pages\\\\posts\\\\confirm\\\\index.vue",
-    "chunkName": "pages/posts/confirm/index"
+    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\posts\\\\confirm\\\\index.vue",
+    "chunkName": "pages/posts/confirm/index",
+    "_name": "_421a0862"
   },
   {
     "name": "posts-create",
     "path": "/posts/create",
-    "component": "D:\\\\Project\\\\Freelance\\\\MinhLong\\\\cms\\\\pages\\\\posts\\\\create\\\\index.vue",
-    "chunkName": "pages/posts/create/index"
+    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\posts\\\\create\\\\index.vue",
+    "chunkName": "pages/posts/create/index",
+    "_name": "_7a021429"
   },
   {
     "name": "services-create",
     "path": "/services/create",
-    "component": "D:\\\\Project\\\\Freelance\\\\MinhLong\\\\cms\\\\pages\\\\services\\\\create.vue",
-    "chunkName": "pages/services/create"
+    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\services\\\\create.vue",
+    "chunkName": "pages/services/create",
+    "_name": "_0e503540"
   },
   {
     "name": "posts-confirm-id",
     "path": "/posts/confirm/:id",
-    "component": "D:\\\\Project\\\\Freelance\\\\MinhLong\\\\cms\\\\pages\\\\posts\\\\confirm\\\\_id.vue",
-    "chunkName": "pages/posts/confirm/_id"
+    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\posts\\\\confirm\\\\_id.vue",
+    "chunkName": "pages/posts/confirm/_id",
+    "_name": "_175ba5f7"
   },
   {
     "name": "posts-id",
     "path": "/posts/:id",
-    "component": "D:\\\\Project\\\\Freelance\\\\MinhLong\\\\cms\\\\pages\\\\posts\\\\_id\\\\index.vue",
-    "chunkName": "pages/posts/_id/index"
+    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\posts\\\\_id\\\\index.vue",
+    "chunkName": "pages/posts/_id/index",
+    "_name": "_11814b15"
   },
   {
     "name": "services-id",
     "path": "/services/:id",
-    "component": "D:\\\\Project\\\\Freelance\\\\MinhLong\\\\cms\\\\pages\\\\services\\\\_id\\\\index.vue",
-    "chunkName": "pages/services/_id/index"
+    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\services\\\\_id\\\\index.vue",
+    "chunkName": "pages/services/_id/index",
+    "_name": "_0b89c6bc"
   },
   {
     "name": "posts-id-edit",
     "path": "/posts/:id?/edit",
-    "component": "D:\\\\Project\\\\Freelance\\\\MinhLong\\\\cms\\\\pages\\\\posts\\\\_id\\\\edit.vue",
-    "chunkName": "pages/posts/_id/edit"
+    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\posts\\\\_id\\\\edit.vue",
+    "chunkName": "pages/posts/_id/edit",
+    "_name": "_618aa197"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "D:\\\\Project\\\\Freelance\\\\MinhLong\\\\cms\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_4feb1a3c"
   }
 ]

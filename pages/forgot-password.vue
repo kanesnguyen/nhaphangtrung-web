@@ -71,7 +71,7 @@
 
         head() {
             return {
-                title: 'Lấy lại mật khẩu | Minh Long CMS',
+                title: 'Lấy lại mật khẩu | Nhập Hàng Trung CMS',
             };
         },
     };

@@ -64,7 +64,7 @@
         },
         head() {
             return {
-                title: 'Thêm mới dịch vụ | Minh Long CMS',
+                title: 'Thêm mới dịch vụ | Nhập Hàng Trung CMS',
             };
         },
     };
