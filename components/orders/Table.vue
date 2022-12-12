@@ -8,10 +8,10 @@
             :loading="loading"
         >
             <a-table-column
-                key="id"
+                key="code"
                 title="ID"
                 :width="80"
-                data-index="id"
+                data-index="code"
             />
             <a-table-column
                 key="image"
@@ -105,7 +105,7 @@
                 :width="150"
             >
                 <template #default="id">
-                    <span><i class="fas fa-plus" />{{id}}</span>
+                    <span><i class="fas fa-plus" />{{ id }}</span>
                 </template>
             </a-table-column>
         </a-table>

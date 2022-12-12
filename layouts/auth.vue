@@ -2,7 +2,7 @@
     <div class="flex justify-between h-screen">
         <div
             class="flex-grow hidden md:block !bg-cover !bg-center"
-            style="background: url('/images/banner2.jpg')"
+            style="background: url('/images/banner.jpg')"
         />
         <div class="w-screen md:w-[500px] flex flex-col items-center mx-4 my-4">
             <div class="flex-grow min-w-[400px] flex flex-col items-center justify-between h-full">
@@ -10,7 +10,7 @@
                     <img src="/images/logo.png">
                 </div>
                 <div class="w-full">
-                    <div class="mb-6">
+                    <div class="mb-6 text-center">
                         <div class="text-prim-100 text-xl mb-2">
                             Chào mừng quay trở lại !
                         </div>

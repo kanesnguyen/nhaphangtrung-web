@@ -18,10 +18,10 @@
                 "
             />
             <a-table-column
-                key="title"
+                key="shopCode"
                 title="Mã shop"
                 :width="150"
-                data-index="title"
+                data-index="shopCode"
             />
             <a-table-column
                 key="indemnification"
@@ -43,7 +43,9 @@
                 :width="150"
             >
                 <template #default="status">
-                    {{ status }}
+                    <a-tag :color="STATUS_COLOR[status]">
+                        {{ STATUS_LABEL[status] }}
+                    </a-tag>
                 </template>
             </a-table-column>
             <a-table-column
@@ -62,6 +64,8 @@
 </template>
 
 <script>
+    import { mapDataFromOptions } from '@/utils/data';
+    import { FEEDBACK_STATUS, FEEDBACK_STATUS_OPTIONS } from '@/constants/feedbacks/status';
 
     export default {
         components: {
@@ -88,12 +92,22 @@
 
         data() {
             return {
+                FEEDBACK_STATUS,
+                FEEDBACK_STATUS_OPTIONS,
             };
         },
         computed: {
+            STATUS_LABEL() {
+                return this.mapDataFromOptions(FEEDBACK_STATUS_OPTIONS, 'value', 'label');
+            },
+
+            STATUS_COLOR() {
+                return this.mapDataFromOptions(FEEDBACK_STATUS_OPTIONS, 'value', 'color');
+            },
         },
 
         methods: {
+            mapDataFromOptions,
         },
     };
 </script>

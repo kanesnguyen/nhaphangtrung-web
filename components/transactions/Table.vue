@@ -19,9 +19,15 @@
                 </template>
             </a-table-column>
             <a-table-column
+                key="code"
+                title="Mã giao dịch"
+                :width="150"
+                data-index="code"
+            />
+            <a-table-column
                 key="title"
                 title="Nội dung"
-                :width="150"
+                :width="300"
                 data-index="title"
             />
             <a-table-column
@@ -29,12 +35,14 @@
                 title="Số tiền"
                 :width="150"
                 data-index="money"
+                align="center"
             />
             <a-table-column
                 key="type"
                 title="Loại giao dịch"
-                :width="300"
+                :width="150"
                 data-index="type"
+                align="center"
             />
             <a-table-column
                 key="surplus"

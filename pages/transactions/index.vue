@@ -1,6 +1,7 @@
 <template>
     <div>
-        <div class="card">
+        <TransactionFilter class="card" />
+        <div class="card mt-4">
             <TransactionTable
                 class="mt-4"
                 :transactions="transactions"
@@ -15,10 +16,12 @@
     import { mapState } from 'vuex';
     import { mapDataFromOptions } from '@/utils/data';
     import TransactionTable from '@/components/transactions/Table.vue';
+    import TransactionFilter from '@/components/transactions/Filter.vue';
 
     export default {
         components: {
             TransactionTable,
+            TransactionFilter,
         },
         async fetch() {
             await this.fetchData();

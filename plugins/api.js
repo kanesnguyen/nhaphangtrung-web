@@ -1,7 +1,7 @@
 import Auth from '@/api/auth';
 import Feedbacks from '@/api/feedbacks';
 import Users from '@/api/users';
-import Ads from '@/api/ads';
+import Transactions from '@/api/transactions';
 import PostCategories from '@/api/posts/categories';
 import PostConfirms from '@/api/posts/confirm';
 import Posts from '@/api/posts';
@@ -13,7 +13,7 @@ export default (context, inject) => {
         auth: Auth(context.$axios),
         feedbacks: Feedbacks(context.$axios),
         users: Users(context.$axios),
-        ads: Ads(context.$axios),
+        transactions: Transactions(context.$axios),
         postCategories: PostCategories(context.$axios),
         postConfirms: PostConfirms(context.$axios),
         posts: Posts(context.$axios),

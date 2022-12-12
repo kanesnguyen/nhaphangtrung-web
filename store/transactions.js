@@ -1,5 +1,5 @@
 export const state = () => ({
-    orders: [],
+    transactions: [],
     pagination: {},
 });
 
@@ -8,7 +8,7 @@ export const getters = {
 
 export const mutations = {
     SET_ORDER(state, payload) {
-        state.orders = payload;
+        state.transactions = payload;
     },
 
     SET_PAGINATION(state, payload) {
@@ -16,25 +16,25 @@ export const mutations = {
     },
 
     UPDATE_ORDER(state, payload) {
-        state.orders.map((item) => {
+        state.transactions.map((item) => {
             if (item.id === payload.id) {
                 item.content = payload?.data?.content;
                 item.thumbnail = payload?.data?.thumbnail;
             }
-            return state.orders;
+            return state.transactions;
         });
     },
 };
 
 export const actions = {
     async fetchAll({ commit }, params) {
-        const { data: { orders, pagination } } = await this.$api.orders.getAll(params);
+        const { data: { transactions, pagination } } = await this.$api.transactions.getAll(params);
 
-        commit('SET_ORDER', orders);
+        commit('SET_ORDER', transactions);
         commit('SET_PAGINATION', pagination);
     },
     async update({ commit }, params) {
-        await this.$api.orders.update(params.id, params.data);
+        await this.$api.transactions.update(params.id, params.data);
         commit('UPDATE_ORDER', { id: params.id, data: params.data });
     },
 };

@@ -96,41 +96,41 @@ export default {
         baseURL: process.env.API_HOST,
     },
 
-    // auth: {
-    //     strategies: {
-    //         local: {
-    //             token: {
-    //                 property: 'data.accessToken',
-    //                 global: true,
-    //                 required: true,
-    //                 maxAge: 60 * 60 * 24 * 30,
-    //                 type: 'Bearer',
-    //             },
-    //             autoLogout: false,
-    //             user: {
-    //                 property: 'data.currentAdmin',
-    //                 autoFetch: true,
-    //             },
-    //             endpoints: {
-    //                 login: {
-    //                     url: `${process.env.API_HOST}/a/session/login`,
-    //                     method: 'POST',
-    //                 },
-    //                 logout: false,
-    //                 user: {
-    //                     url: `${process.env.API_HOST}/a/account`,
-    //                     method: 'GET',
-    //                 },
-    //             },
-    //             redirect: {
-    //                 login: '/login',
-    //                 logout: '/',
-    //                 // callback: '/login',
-    //                 home: '/',
-    //             },
-    //         },
-    //     },
-    // },
+    auth: {
+        strategies: {
+            local: {
+                token: {
+                    property: 'data.accessToken',
+                    global: true,
+                    required: true,
+                    maxAge: 60 * 60 * 24 * 30,
+                    type: 'Bearer',
+                },
+                autoLogout: false,
+                user: {
+                    property: 'data.currentUser',
+                    autoFetch: true,
+                },
+                endpoints: {
+                    login: {
+                        url: `${process.env.API_HOST}/u/session/login`,
+                        method: 'POST',
+                    },
+                    logout: false,
+                    user: {
+                        url: `${process.env.API_HOST}/u/account`,
+                        method: 'GET',
+                    },
+                },
+                redirect: {
+                    login: '/login',
+                    logout: '/',
+                    // callback: '/login',
+                    home: '/',
+                },
+            },
+        },
+    },
 
     // router: {
     //     middleware: ['auth'],

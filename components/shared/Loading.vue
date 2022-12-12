@@ -18,7 +18,7 @@
                 percent: 0,
                 show: false,
                 canSuccess: true,
-                color: '#3EC08D',
+                color: '#f6b900',
                 failedColor: '#F56C6C',
             };
         },
