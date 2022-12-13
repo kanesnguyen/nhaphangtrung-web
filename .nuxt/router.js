@@ -17,6 +17,7 @@ const _421a0862 = () => interopDefault(import('..\\pages\\posts\\confirm\\index.
 const _7a021429 = () => interopDefault(import('..\\pages\\posts\\create\\index.vue' /* webpackChunkName: "pages/posts/create/index" */))
 const _0e503540 = () => interopDefault(import('..\\pages\\services\\create.vue' /* webpackChunkName: "pages/services/create" */))
 const _175ba5f7 = () => interopDefault(import('..\\pages\\posts\\confirm\\_id.vue' /* webpackChunkName: "pages/posts/confirm/_id" */))
+const _0f61cec3 = () => interopDefault(import('..\\pages\\orders\\_id\\index.vue' /* webpackChunkName: "pages/orders/_id/index" */))
 const _11814b15 = () => interopDefault(import('..\\pages\\posts\\_id\\index.vue' /* webpackChunkName: "pages/posts/_id/index" */))
 const _0b89c6bc = () => interopDefault(import('..\\pages\\services\\_id\\index.vue' /* webpackChunkName: "pages/services/_id/index" */))
 const _618aa197 = () => interopDefault(import('..\\pages\\posts\\_id\\edit.vue' /* webpackChunkName: "pages/posts/_id/edit" */))
@@ -85,6 +86,10 @@ export const routerOptions = {
     path: "/posts/confirm/:id",
     component: _175ba5f7,
     name: "posts-confirm-id"
+  }, {
+    path: "/orders/:id",
+    component: _0f61cec3,
+    name: "orders-id"
   }, {
     path: "/posts/:id",
     component: _11814b15,

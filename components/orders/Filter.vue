@@ -11,13 +11,13 @@
             label="Trạng thái"
             placeholder="Trạng thái"
             query="status"
-            :options="STATUS_OPTIONS"
+            :options="ORDER_STATUS_OPTIONS"
         />
     </div>
 </template>
 
 <script>
-    import { STATUS_OPTIONS } from '@/constants/posts/status';
+    import { ORDER_STATUS_OPTIONS } from '@/constants/orders/status';
     import SearchFilter from '@/components/filters/Search.vue';
     import SelectFilter from '@/components/filters/Select.vue';
 
@@ -29,7 +29,7 @@
 
         data() {
             return {
-                STATUS_OPTIONS,
+                ORDER_STATUS_OPTIONS,
             };
         },
     };

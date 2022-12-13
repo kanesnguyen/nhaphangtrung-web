@@ -4,11 +4,11 @@
         <div class="card mt-4">
             <div class="flex justify-between items-center">
                 <ct-page-header text="Danh sách khiếu nại" />
-                <nuxt-link to="/feedbacks/create">
+                <button @click="$refs.feedbackDialog.open()">
                     <a-button type="primary">
                         <i class="fas fa-plus mr-2" /> Khiếu nại
                     </a-button>
-                </nuxt-link>
+                </button>
             </div>
             <FeedbackTable
                 class="mt-4"
@@ -16,6 +16,7 @@
                 :loading="loading"
                 :pagination="pagination"
             />
+            <FeedbackDialog ref="feedbackDialog" />
         </div>
     </div>
 </template>
@@ -25,11 +26,13 @@
     import { mapDataFromOptions } from '@/utils/data';
     import FeedbackTable from '@/components/feedbacks/Table.vue';
     import FeedbackFilter from '@/components/feedbacks/Filter.vue';
+    import FeedbackDialog from '@/components/feedbacks/Dialog.vue';
 
     export default {
         components: {
             FeedbackTable,
             FeedbackFilter,
+            FeedbackDialog,
         },
         async fetch() {
             await this.fetchData();

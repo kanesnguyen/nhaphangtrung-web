@@ -3,7 +3,7 @@
         <SearchFilter
             class="col-span-2"
             label="Tìm kiếm"
-            placeholder="Tìm kiếm theo tên, nội dung..."
+            placeholder="Tìm kiếm theo Mã đơn hàng"
             query="searchKey"
         />
         <SelectFilter

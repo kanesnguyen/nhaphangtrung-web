@@ -91,6 +91,13 @@
     "_name": "_175ba5f7"
   },
   {
+    "name": "orders-id",
+    "path": "/orders/:id",
+    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\orders\\\\_id\\\\index.vue",
+    "chunkName": "pages/orders/_id/index",
+    "_name": "_0f61cec3"
+  },
+  {
     "name": "posts-id",
     "path": "/posts/:id",
     "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\posts\\\\_id\\\\index.vue",

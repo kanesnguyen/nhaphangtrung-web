@@ -13,22 +13,25 @@
                 align="center"
                 :width="60"
                 :custom-render="
-                    (text, record, index) =>
-                        $helpers.getTableIndex(pagination, index)
+                    (text, record, index) =>index
                 "
             />
             <a-table-column
-                key="shopCode"
-                title="Mã shop"
+                key="orderCode"
+                title="Mã đơn hàng"
                 :width="150"
-                data-index="shopCode"
+                data-index="orderCode"
             />
             <a-table-column
-                key="indemnification"
-                title="Tiền bồi thường"
-                :width="150"
-                data-index="indemnification"
-            />
+                key="type"
+                title="Hình thức"
+                :width="250"
+                data-index="type"
+            >
+                <template #default="type">
+                    {{ TYPE_LABEL[type] }}
+                </template>
+            </a-table-column>
             <a-table-column
                 key="description"
                 title="Nội dung"
@@ -65,7 +68,9 @@
 
 <script>
     import { mapDataFromOptions } from '@/utils/data';
-    import { FEEDBACK_STATUS, FEEDBACK_STATUS_OPTIONS } from '@/constants/feedbacks/status';
+    import {
+        FEEDBACK_STATUS, FEEDBACK_STATUS_OPTIONS, FEEDBACK_TYPE, FEEDBACK_TYPE_OPTIONS,
+    } from '@/constants/feedbacks/status';
 
     export default {
         components: {
@@ -94,6 +99,8 @@
             return {
                 FEEDBACK_STATUS,
                 FEEDBACK_STATUS_OPTIONS,
+                FEEDBACK_TYPE,
+                FEEDBACK_TYPE_OPTIONS,
             };
         },
         computed: {
@@ -103,6 +110,10 @@
 
             STATUS_COLOR() {
                 return this.mapDataFromOptions(FEEDBACK_STATUS_OPTIONS, 'value', 'color');
+            },
+
+            TYPE_LABEL() {
+                return this.mapDataFromOptions(FEEDBACK_TYPE_OPTIONS, 'value', 'label');
             },
         },
 
