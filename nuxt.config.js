@@ -132,9 +132,9 @@ export default {
         },
     },
 
-    // router: {
-    //     middleware: ['auth'],
-    // },
+    router: {
+        middleware: ['auth'],
+    },
 
     build: {
         transpile: [/^vue2-google-maps($|\/)/],
