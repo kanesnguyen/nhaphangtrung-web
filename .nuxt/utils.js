@@ -200,7 +200,7 @@ export async function setContext (app, context) {
       payload: context.payload,
       error: context.error,
       base: app.router.options.base,
-      env: {"API_HOST":"http://localhost:3000/api"}
+      env: {"API_HOST":"http://https://nhaphangtrung.herokuapp.com/api"}
     }
     // Only set once
 

@@ -76,24 +76,23 @@
                     :rules="rules"
                     class="space-y-4 w-full"
                 >
-                    <a-form-model-item prop="idTracking" label="Đã chuyển vào tài khoản:">
+                    <a-form-model-item prop="account" label="Đã chuyển vào tài khoản:">
                         <a-select
-                            v-model="data"
+                            v-model="form.account"
                             class="w-full"
                             placeholder="Chọn tài khoản"
                             show-search
-                            @change="onChange"
                         >
                             <a-select-option
-                                v-for="(item, index) in options"
+                                v-for="(item, index) in RECHARGE_STATUS_OPTIONS"
                                 :key="index"
-                                :value="item[optionValue]"
+                                :value="item.value"
                             >
-                                {{ item[optionLabel] }}
+                                {{ item.label }}
                             </a-select-option>
                         </a-select>
                     </a-form-model-item>
-                    <a-form-model-item prop="idTracking" label="Số tiền đã chuyển:">
+                    <a-form-model-item prop="money" label="Số tiền đã chuyển:">
                         <a-input
                             v-model="form.money"
                             size="large"
@@ -106,7 +105,6 @@
                             v-model="form.description"
                             placeholder="Nội dung"
                             :auto-size="{ minRows: 4, maxRows: 5 }"
-                            :disabled="isEdit"
                         />
                     </a-form-model-item>
                     <a-button
@@ -125,22 +123,44 @@
 </template>
 
 <script>
+    import {
+        RECHARGE_STATUS, RECHARGE_STATUS_OPTIONS,
+    } from '@/constants/recharges/status';
 
     export default {
         components: {
         },
         data() {
             return {
+                RECHARGE_STATUS,
+                RECHARGE_STATUS_OPTIONS,
                 form: {
-                    idTracking: '',
+                    account: '',
                     money: 0,
                     description: '',
                 },
-                data: [],
-                options: [],
+                loading: false,
+                rules: {
+                    account: [{
+                        required: true, message: 'Vui lòng chọn ngân hàng', trigger: 'blur',
+                    }],
+                    money: [{
+                        required: true, message: 'Vui lòng nhập số tiền', trigger: 'blur',
+                    }],
+                    description: [{
+                        required: true, message: 'Vui lòng mô tả chi tiết vấn đề', trigger: 'blur',
+                    }],
+                },
             };
         },
         computed: {
+            STATUS_LABEL() {
+                return this.mapDataFromOptions(RECHARGE_STATUS_OPTIONS, 'value', 'label');
+            },
+
+            STATUS_COLOR() {
+                return this.mapDataFromOptions(RECHARGE_STATUS_OPTIONS, 'value', 'color');
+            },
         },
         watch: {
         },
@@ -154,9 +174,17 @@
         methods: {
             async handleSubmit() {
                 try {
-                    await this.$api.order.tracking({
-                        idTracking: this.form.idTracking,
-                    });
+                    if (this.form.account !== '' && this.form.description !== '' && this.form.money !== 0) {
+                        this.loading = true;
+                        await this.$api.recharges.create(this.form);
+                        this.loading = false;
+                        this.$message.success('Gửi yêu cầu thành công');
+                    }
+                    this.form = {
+                        account: '',
+                        money: 0,
+                        description: '',
+                    };
                 } catch (e) {
                     this.$handleError(e);
                 }

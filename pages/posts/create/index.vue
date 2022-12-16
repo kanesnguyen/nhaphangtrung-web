@@ -18,18 +18,18 @@
             </div>
         </div>
         <div class="card mt-4">
-            <ProductForm :isEdit="true" :post="post" />
+            <PostForm :isEdit="true" :post="post" />
         </div>
     </div>
 </template>
 
 <script>
     import { mapState } from 'vuex';
-    import ProductForm from '@/components/posts/Form.vue';
+    import PostForm from '@/components/posts/Form.vue';
 
     export default {
         components: {
-            ProductForm,
+            PostForm,
         },
 
         async asyncData({ store, params }) {

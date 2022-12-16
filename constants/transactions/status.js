@@ -1,16 +1,16 @@
 export const TRANSACTION_STATUS = {
-    ACTIVE: 'active',
-    INACTIVE: 'inactive',
+    SUCCESS: 'success',
+    CANCEL: 'cancel',
     WAIT: 'wait',
 };
 
 export const TRANSACTION_STATUS_OPTIONS = [{
-    label: 'Đã xử lý',
-    value: TRANSACTION_STATUS.ACTIVE,
+    label: 'Thành công',
+    value: TRANSACTION_STATUS.SUCCESS,
     color: 'green',
 }, {
     label: 'Đã hủy',
-    value: TRANSACTION_STATUS.INACTIVE,
+    value: TRANSACTION_STATUS.CANCEL,
     color: 'red',
 }, {
     label: 'Chờ duyệt',

@@ -8,11 +8,13 @@ import PostConfirms from '@/api/posts/confirm';
 import Posts from '@/api/posts';
 import Services from '@/api/services';
 import Uploaders from '@/api/uploaders';
+import Recharges from '@/api/recharges';
 
 export default (context, inject) => {
     const factories = {
         auth: Auth(context.$axios),
         feedbacks: Feedbacks(context.$axios),
+        recharges: Recharges(context.$axios),
         orders: Orders(context.$axios),
         users: Users(context.$axios),
         transactions: Transactions(context.$axios),

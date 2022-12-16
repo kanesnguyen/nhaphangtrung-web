@@ -56,12 +56,12 @@ export default function (ctx, inject) {
   },
   "endpoints": {
     "login": {
-      "url": "http://localhost:3000/api/u/session/login",
+      "url": "http://https://nhaphangtrung.herokuapp.com/api/u/session/login",
       "method": "POST"
     },
     "logout": false,
     "user": {
-      "url": "http://localhost:3000/api/u/account",
+      "url": "http://https://nhaphangtrung.herokuapp.com/api/u/account",
       "method": "GET"
     }
   },

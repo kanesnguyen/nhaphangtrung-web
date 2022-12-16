@@ -104,6 +104,13 @@
             };
         },
         computed: {
+            STATUS_LABEL() {
+                return this.mapDataFromOptions(ORDER_STATUS_OPTIONS, 'value', 'label');
+            },
+
+            STATUS_COLOR() {
+                return this.mapDataFromOptions(ORDER_STATUS_OPTIONS, 'value', 'color');
+            },
         },
 
         watch: {
