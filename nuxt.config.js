@@ -90,6 +90,30 @@ export default {
     modules: [
         '@nuxtjs/axios',
         '@nuxtjs/auth-next',
+        '@nuxtjs/firebase',
+        {
+            config: {
+                apiKey: 'AIzaSyAii3QkLdF8LaSUCFa3aUnvd_sRHfeI7PI',
+                authDomain: 'genstech-402614.firebaseapp.com',
+                projectId: 'genstech-402614',
+                storageBucket: 'genstech-402614.appspot.com',
+                messagingSenderId: '33208858783',
+                appId: '1:33208858783:web:b40a01b859ecbe1cd34aaa',
+            },
+            onFirebaseHosting: true,
+            services: {
+                auth: true, // Just as example. Can be any other service.
+                firestore: true,
+                functions: true,
+                storage: true,
+                database: true,
+                messaging: true,
+                performance: true,
+                appCheck: true,
+                analytics: true,
+                remoteConfig: true,
+            },
+        },
     ],
 
     axios: {

@@ -18,7 +18,7 @@
             @click="handleClick"
             @openChange="handleOpenChange"
         >
-            <template v-for="sidebarItem in SIDEBAR_ITEMS">
+            <template v-for="sidebarItem in []">
                 <a-sub-menu v-if="sidebarItem.childs" :key="sidebarItem.route">
                     <template slot="title">
                         <i :class="sidebarItem.icon" />

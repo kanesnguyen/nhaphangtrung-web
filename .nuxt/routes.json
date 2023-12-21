@@ -2,127 +2,127 @@
   {
     "name": "cart",
     "path": "/cart",
-    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\cart\\\\index.vue",
+    "component": "C:\\\\Projects\\\\test\\\\pages\\\\cart\\\\index.vue",
     "chunkName": "pages/cart/index",
-    "_name": "_3afaabc8"
+    "_name": "_3e6c8eff"
   },
   {
     "name": "feedbacks",
     "path": "/feedbacks",
-    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\feedbacks\\\\index.vue",
+    "component": "C:\\\\Projects\\\\test\\\\pages\\\\feedbacks\\\\index.vue",
     "chunkName": "pages/feedbacks/index",
-    "_name": "_715a6d8a"
+    "_name": "_9949c2f2"
   },
   {
     "name": "forgot-password",
     "path": "/forgot-password",
-    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\forgot-password.vue",
+    "component": "C:\\\\Projects\\\\test\\\\pages\\\\forgot-password.vue",
     "chunkName": "pages/forgot-password",
-    "_name": "_78619922"
+    "_name": "_c6b4225c"
   },
   {
     "name": "login",
     "path": "/login",
-    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\login.vue",
+    "component": "C:\\\\Projects\\\\test\\\\pages\\\\login.vue",
     "chunkName": "pages/login",
-    "_name": "_1992bd53"
+    "_name": "_1076c876"
   },
   {
     "name": "orders",
     "path": "/orders",
-    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\orders\\\\index.vue",
+    "component": "C:\\\\Projects\\\\test\\\\pages\\\\orders\\\\index.vue",
     "chunkName": "pages/orders/index",
-    "_name": "_24b458b7"
+    "_name": "_2db890da"
   },
   {
     "name": "print-bill",
     "path": "/print-bill",
-    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\print-bill\\\\index.vue",
+    "component": "C:\\\\Projects\\\\test\\\\pages\\\\print-bill\\\\index.vue",
     "chunkName": "pages/print-bill/index",
-    "_name": "_021a6e35"
+    "_name": "_002fdcd8"
   },
   {
     "name": "recharge",
     "path": "/recharge",
-    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\recharge\\\\index.vue",
+    "component": "C:\\\\Projects\\\\test\\\\pages\\\\recharge\\\\index.vue",
     "chunkName": "pages/recharge/index",
-    "_name": "_41678335"
+    "_name": "_1a3e3e98"
   },
   {
     "name": "tracking",
     "path": "/tracking",
-    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\tracking\\\\index.vue",
+    "component": "C:\\\\Projects\\\\test\\\\pages\\\\tracking\\\\index.vue",
     "chunkName": "pages/tracking/index",
-    "_name": "_14938db6"
+    "_name": "_62e616f0"
   },
   {
     "name": "transactions",
     "path": "/transactions",
-    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\transactions\\\\index.vue",
+    "component": "C:\\\\Projects\\\\test\\\\pages\\\\transactions\\\\index.vue",
     "chunkName": "pages/transactions/index",
-    "_name": "_36b8b272"
+    "_name": "_99d00eac"
   },
   {
     "name": "posts-confirm",
     "path": "/posts/confirm",
-    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\posts\\\\confirm\\\\index.vue",
+    "component": "C:\\\\Projects\\\\test\\\\pages\\\\posts\\\\confirm\\\\index.vue",
     "chunkName": "pages/posts/confirm/index",
-    "_name": "_421a0862"
+    "_name": "_3ccb3e1c"
   },
   {
     "name": "posts-create",
     "path": "/posts/create",
-    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\posts\\\\create\\\\index.vue",
+    "component": "C:\\\\Projects\\\\test\\\\pages\\\\posts\\\\create\\\\index.vue",
     "chunkName": "pages/posts/create/index",
-    "_name": "_7a021429"
+    "_name": "_7a17fea6"
   },
   {
     "name": "services-create",
     "path": "/services/create",
-    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\services\\\\create.vue",
+    "component": "C:\\\\Projects\\\\test\\\\pages\\\\services\\\\create.vue",
     "chunkName": "pages/services/create",
-    "_name": "_0e503540"
+    "_name": "_3ad8965d"
   },
   {
     "name": "posts-confirm-id",
     "path": "/posts/confirm/:id",
-    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\posts\\\\confirm\\\\_id.vue",
+    "component": "C:\\\\Projects\\\\test\\\\pages\\\\posts\\\\confirm\\\\_id.vue",
     "chunkName": "pages/posts/confirm/_id",
-    "_name": "_175ba5f7"
+    "_name": "_3460104c"
   },
   {
     "name": "orders-id",
     "path": "/orders/:id",
-    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\orders\\\\_id\\\\index.vue",
+    "component": "C:\\\\Projects\\\\test\\\\pages\\\\orders\\\\_id\\\\index.vue",
     "chunkName": "pages/orders/_id/index",
-    "_name": "_0f61cec3"
+    "_name": "_580b9700"
   },
   {
     "name": "posts-id",
     "path": "/posts/:id",
-    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\posts\\\\_id\\\\index.vue",
+    "component": "C:\\\\Projects\\\\test\\\\pages\\\\posts\\\\_id\\\\index.vue",
     "chunkName": "pages/posts/_id/index",
-    "_name": "_11814b15"
+    "_name": "_0f96b9b8"
   },
   {
     "name": "services-id",
     "path": "/services/:id",
-    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\services\\\\_id\\\\index.vue",
+    "component": "C:\\\\Projects\\\\test\\\\pages\\\\services\\\\_id\\\\index.vue",
     "chunkName": "pages/services/_id/index",
-    "_name": "_0b89c6bc"
+    "_name": "_0b9fb139"
   },
   {
     "name": "posts-id-edit",
     "path": "/posts/:id?/edit",
-    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\posts\\\\_id\\\\edit.vue",
+    "component": "C:\\\\Projects\\\\test\\\\pages\\\\posts\\\\_id\\\\edit.vue",
     "chunkName": "pages/posts/_id/edit",
-    "_name": "_618aa197"
+    "_name": "_b8e95ad8"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "D:\\\\Project\\\\Freelance\\\\NhapHangTrung\\\\cms\\\\pages\\\\index.vue",
+    "component": "C:\\\\Projects\\\\test\\\\pages\\\\index.vue",
     "chunkName": "pages/index",
-    "_name": "_4feb1a3c"
+    "_name": "_46cf255f"
   }
 ]

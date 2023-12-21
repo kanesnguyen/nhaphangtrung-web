@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "genstech-402614",
+    "staging": "genstech-402614"
+  },
+  "targets": {}
+}

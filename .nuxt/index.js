@@ -13,9 +13,9 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_axios_8d4fa4b4 from 'nuxt_plugin_axios_8d4fa4b4' // Source: .\\axios.js (mode: 'all')
-import nuxt_plugin_googleanalytics_0ab246c0 from 'nuxt_plugin_googleanalytics_0ab246c0' // Source: .\\google-analytics.js (mode: 'client')
-import nuxt_plugin_fontawesome_0942ac68 from 'nuxt_plugin_fontawesome_0942ac68' // Source: .\\fontawesome.js (mode: 'all')
+import nuxt_plugin_axios_470933fa from 'nuxt_plugin_axios_470933fa' // Source: .\\axios.js (mode: 'all')
+import nuxt_plugin_googleanalytics_4b652243 from 'nuxt_plugin_googleanalytics_4b652243' // Source: .\\google-analytics.js (mode: 'client')
+import nuxt_plugin_fontawesome_ca8129f6 from 'nuxt_plugin_fontawesome_ca8129f6' // Source: .\\fontawesome.js (mode: 'all')
 import nuxt_plugin_api_caeae0b4 from 'nuxt_plugin_api_caeae0b4' // Source: ..\\plugins\\api (mode: 'all')
 import nuxt_plugin_antdesign_75603550 from 'nuxt_plugin_antdesign_75603550' // Source: ..\\plugins\\ant-design (mode: 'all')
 import nuxt_plugin_filters_2abc1387 from 'nuxt_plugin_filters_2abc1387' // Source: ..\\plugins\\filters (mode: 'all')
@@ -23,7 +23,7 @@ import nuxt_plugin_helpers_e49953de from 'nuxt_plugin_helpers_e49953de' // Sourc
 import nuxt_plugin_globalcomponents_54ec6fe8 from 'nuxt_plugin_globalcomponents_54ec6fe8' // Source: ..\\plugins\\global-components (mode: 'all')
 import nuxt_plugin_axios_2228ef02 from 'nuxt_plugin_axios_2228ef02' // Source: ..\\plugins\\axios (mode: 'client')
 import nuxt_plugin_googlemaps_c54ce192 from 'nuxt_plugin_googlemaps_c54ce192' // Source: ..\\plugins\\google-maps (mode: 'client')
-import nuxt_plugin_auth_b2c7a26c from 'nuxt_plugin_auth_b2c7a26c' // Source: .\\auth.js (mode: 'all')
+import nuxt_plugin_auth_7631f6cd from 'nuxt_plugin_auth_7631f6cd' // Source: .\\auth.js (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -217,16 +217,16 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_axios_8d4fa4b4 === 'function') {
-    await nuxt_plugin_axios_8d4fa4b4(app.context, inject)
+  if (typeof nuxt_plugin_axios_470933fa === 'function') {
+    await nuxt_plugin_axios_470933fa(app.context, inject)
   }
 
-  if (process.client && typeof nuxt_plugin_googleanalytics_0ab246c0 === 'function') {
-    await nuxt_plugin_googleanalytics_0ab246c0(app.context, inject)
+  if (process.client && typeof nuxt_plugin_googleanalytics_4b652243 === 'function') {
+    await nuxt_plugin_googleanalytics_4b652243(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_fontawesome_0942ac68 === 'function') {
-    await nuxt_plugin_fontawesome_0942ac68(app.context, inject)
+  if (typeof nuxt_plugin_fontawesome_ca8129f6 === 'function') {
+    await nuxt_plugin_fontawesome_ca8129f6(app.context, inject)
   }
 
   if (typeof nuxt_plugin_api_caeae0b4 === 'function') {
@@ -257,8 +257,8 @@ async function createApp(ssrContext, config = {}) {
     await nuxt_plugin_googlemaps_c54ce192(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_auth_b2c7a26c === 'function') {
-    await nuxt_plugin_auth_b2c7a26c(app.context, inject)
+  if (typeof nuxt_plugin_auth_7631f6cd === 'function') {
+    await nuxt_plugin_auth_7631f6cd(app.context, inject)
   }
 
   // Lock enablePreview in context

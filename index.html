@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firebase Storage Example</title>
+
+  <!-- Include Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.2/firebase-storage.js"></script>
+
+  <style>
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Firebase Storage Example</h1>
+
+  <!-- Your Firebase configuration -->
+  <script>
+    var firebaseConfig = {
+        apiKey: 'AIzaSyAii3QkLdF8LaSUCFa3aUnvd_sRHfeI7PI',
+        authDomain: 'genstech-402614.firebaseapp.com',
+        projectId: 'genstech-402614',
+        storageBucket: 'genstech-402614.appspot.com',
+        messagingSenderId: '33208858783',
+        appId: '1:33208858783:web:b40a01b859ecbe1cd34aaa',
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // Create a reference to the storage service
+    var storage = firebase.storage();
+
+    // Reference to the image in storage
+    var storageRef = storage.ref('QArtIyquHFIGKsM7hbXLXcZnnamvNCjN_1686717782____f05f925188f4e4a6117ba0dc92531158.webp');
+
+    // Get the download URL
+    storageRef.getDownloadURL().then(function(url) {
+      // Use the URL to display the image
+      var imageElement = document.createElement('img');
+      imageElement.src = url;
+      imageElement.alt = 'Your Image';
+
+      // Append the image to the body
+      document.body.appendChild(imageElement);
+    }).catch(function(error) {
+      // Handle any errors
+      console.error(error);
+    });
+  </script>
+
+</body>
+</html>
